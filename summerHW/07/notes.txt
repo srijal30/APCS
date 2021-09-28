@@ -1,0 +1,8 @@
+Salaj Rijal
+APCS
+HW 05 -- How Was Your Summer?
+2021-09-27
+
+NOTES:
+Arrays are really bad in java, you cannot change amount of values and are stuck with a set number of values
+Only one type of data type can be used in a array that you have to call beforehand

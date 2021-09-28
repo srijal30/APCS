@@ -1,0 +1,8 @@
+Salaj Rijal
+APCS
+HW 05 -- How Was Your Summer?
+2021-09-27
+
+NOTES:
+you can describe what is in a function with /** */
+you have to specify what datatype a function returns

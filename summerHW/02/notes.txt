@@ -1,0 +1,11 @@
+Salaj Rijal
+APCS
+HW 05 -- How Was Your Summer?
+2021-09-27
+
+NOTES:
+Class name is the same as file name
+you have to say what type of data a variable will be
+Is there a more effiecient way to do this?
+If you put final for variable it means its a constant
+If you divide int by double you get a double (int and double are not the same)

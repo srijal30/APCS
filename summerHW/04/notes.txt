@@ -1,0 +1,7 @@
+Salaj Rijal
+APCS
+HW 05 -- How Was Your Summer?
+2021-09-27
+
+NOTES:
+if-statements need conditions in parentheses

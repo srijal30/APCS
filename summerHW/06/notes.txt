@@ -1,0 +1,11 @@
+Salaj Rijal
+APCS
+HW 05 -- How Was Your Summer?
+2021-09-27
+
+NOTES:
+there are 3 types of loops
+-For
+-While
+-Enhanced For
+you can use printf to help you format a string that you are printing

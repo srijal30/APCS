@@ -1,0 +1,9 @@
+Salaj Rijal
+APCS
+HW05 -- How Was Your Summer?
+2021-09-27
+
+NOTES:
+Semicoloms are important
+What does public mean, what does static means
+you do single line comments with // and multiline with /* */
