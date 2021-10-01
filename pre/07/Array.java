@@ -41,7 +41,7 @@ public class Array{
     //Part 1
     static String powArray(double[] array){
         for(int i=0;i<array.length;i++){
-            array[i] = Loops.power(array[i], 2);
+            array[i] = Math.pow(array[i], 2);
         }
         return Arrays.toString(array);
     }
