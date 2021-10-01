@@ -4,9 +4,11 @@ APCS
 HW 09 -- What are BigSibs Good For? -- How Java Files interact
 2021-10-01
 
-DISCOVERIES:
+DISCOVERIES
+-In order to run a method from another file, you need to compile that mentioned file first.:
 
 UNRESOLVED QUESTIONS:
+-What is the best practice when running a  java project that requires multiple files
 
 */
 public class Greet {
