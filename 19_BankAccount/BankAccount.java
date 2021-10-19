@@ -5,8 +5,24 @@ HW 19 -- Mo Money Mo Problems... MORE AWESOME -- Creating authenticate() with th
 2021-10-18
 
 DISCO:
+-Structure of conditional in java:
+if (boolean){
+	//Actions taken if boolean true
+}
+else if (boolean2){
+	//Actions taken if boolean2 is true
+else{
+	//Actions taken if all booleans are false
+}
+-If your conditional has a return statement inside, it will terminate if the boolean is true
+-System.out.print() is helpful if you dont want a newline
 
 QCC:
+-What does terminal interactions mean?
+-Why set value to 99... when a input is incorrect?
+-What else can we do to improve BankAccount?
+-Should we add a pin parameter to deposit and withdrawl?
+-How can we structure error messages in a more effective manner?
 
 Q2:
 You know that java creates a default constructor becasue if there are not constructors defined in a class and you try to construct it, an instance of the class is still returned. An example of this default constructor is:
