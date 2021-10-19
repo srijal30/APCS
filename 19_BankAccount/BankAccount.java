@@ -55,13 +55,26 @@ public class BankAccount{
 	
 	public short setPin( short newPin ) {
 		short oldPin = pin;
+
+		if (newPin < 1000 | newPin > 9998){
+			pin = 9999;
+			System.out.print("inputed paramter for setPin() is invalid old value: ");
+		}
 		pin = newPin;
 		return oldPin;
 	}
 
 	public int setAcctNum( int newAcctNum ) {
 		int oldAcctNum = acctNum;
-		acctNum = newAcctNum;
+
+		if (newAcctNum < 100000000 | newAcctNum > 999999998){
+			acctNum = 999999999;
+			System.out.print("inputed paramter for setAcctNum() is invalid old value: ");
+		}
+		else{
+			acctNum = newAcctNum;
+		}
+
 		return oldAcctNum;
 	}
 
@@ -73,20 +86,34 @@ public class BankAccount{
 
 	//Balance Affecting Methods
 	//Withdraw	
-	public void withdraw(double amount){
+	public boolean withdraw(double amount){
+		System.out.print("Withdrawal Complete: ");
+		if (amount > balance){
+			return false;
+		}
 		balance -= amount;
+		return true;
 	}
-
 	//Deposit
 	public void deposit(double amount){
 		balance += amount;
 	}
 
+	//Security Methods
+	public boolean authenticate(int accnt, String pswd){
+		System.out.print("Authentication Succesful: ");
+		if (accnt == acctNum & pswd.equals(passwd)){
+			return true;
+		}
+		return false;
+	}
+
 	//main() method
 	public static void main(String[] args){
+		//HW 18.5
 		//Test for initialization and new toString()
 		BankAccount elonMusk = new BankAccount();
-		System.out.println( elonMusk.toString() ); //expecting null values
+		//System.out.println( elonMusk.toString() ); //expecting null values
 
 		//Test for variable changers (mutator methods)
         System.out.println( "Test for Return Values"); // output should match AccntInfo above	 
@@ -95,11 +122,21 @@ public class BankAccount{
 		System.out.println( elonMusk.setPin( (short)4321 ) );
 		System.out.println( elonMusk.setAcctNum(123456789) );
         System.out.println( elonMusk.setBalance(10000) );
-		System.out.println( elonMusk.toString() );
+		//System.out.println( elonMusk.toString() );
 
 		//Test for Balance Affecting Methods
-		elonMusk.deposit(5000);
-		elonMusk.withdraw(250);	
-		System.out.println( elonMusk.toString() );
+		//elonMusk.deposit(5000);
+		//elonMusk.withdraw(250);	
+		//System.out.println( elonMusk.toString() +"/nHW 19 Tests:" );
+
+		//HW19
+		System.out.println("\nTESTS FOR HW19:");
+		System.out.println( elonMusk.setAcctNum(64) );
+		System.out.println( elonMusk.setPin( (short)-32) );
+		System.out.println( elonMusk.withdraw(9999.99) );
+		System.out.println( elonMusk.withdraw(420.89) );
+		System.out.println( elonMusk.authenticate(999999999, "tesla123"));
+		System.out.println( elonMusk.authenticate(987654321, "fordisthebest"));
+
 	}
 }
