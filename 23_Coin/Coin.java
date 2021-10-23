@@ -1,10 +1,17 @@
 /*
 The Sentinels: Perry Huang, Salaj Rijal
 APCS
-HW23 -- <Title/Topic/Summary... (Aim for concision, brevity, CLARITY. Write to your future self...)>
-<yyyy>-<mm>-<dd>
-time spent: <elapsed time in hours, rounded to nearest tenth>
+HW23 -- What Does Equality Look Like?/Making Coin.java and Driver.java/Flipping coins with bias
+time spent: 0.9 hours
+
+DISCO:
+In order to use random, you have to first create an instance of class Random
+
+QCC:
+Is there a more efficient way to make assignValue() than a bunch of if-statements
+
  */
+
 import java.util.Random;
 
 public class Coin {
@@ -16,12 +23,13 @@ public class Coin {
   int flipCtr;
   int headsCtr;
   int tailsCtr;
-  double bias; //could also possible be float
+  double bias = 0.5;
+  //could also possible be float
   
   //create random object
   Random rng = new Random();
-
-
+	
+  
   /***
    *  Coin() -- default constuctor
    *  precond:
@@ -90,7 +98,31 @@ public class Coin {
    * Returns value assigned.
    ***/
   private double assignValue( String s ) {
-		return 0.0;
+		if ( s.equals("penny") ){
+			value = .01;
+      return value;
+    }
+		if ( s.equals("nickel") ){
+			value = .05;
+      return value;
+    }
+		if ( s.equals("dime") ){
+			value = .10;
+      return value;
+    }
+		if ( s.equals("quarter") ){
+			value = .25;
+      return value;
+    }
+		if ( s.equals("halfdollar") ){
+			value = .50;
+      return value;
+    }
+		if ( s.equals("dollar") ){
+			value = 1.0;
+      return value;
+    }
+    return 0.0;
   }
 
 
@@ -106,7 +138,7 @@ public class Coin {
   	int flipCtr = 0;
   	int headsCtr = 0;
   	int tailsCtr = 0;
-  	double bias = 0.0; //could also possible be float
+  	double bias = 0.5; //could also possible be float
 
   }
 
@@ -121,7 +153,19 @@ public class Coin {
    * Returns "heads" or "tails"
    ***/
   public String flip() {
-		return "";
+    double randomValue = rng.nextDouble();
+    if (randomValue > bias ){
+      flipCtr++;
+      tailsCtr++;
+      upFace = "tails";
+      return "tails";
+    }
+    else{
+      flipCtr++;
+      headsCtr++;
+      upFace = "heads";
+      return "heads";
+    }
   }
 
 
