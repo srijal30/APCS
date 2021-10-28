@@ -17,6 +17,10 @@ QCC:
 for each input and putting them in a list, and then searching the array for the largest common value?
 
 ALGO:
+We made algo that is similar to brute force. We found which value was the smaller one and then
+initialized 2 variables called counter=1 and result=0. Then we created a while loop using the boolean expression (while counter <= smallerValue).
+If the value was true we updated the result variable to the value of that of counter. Then we did counter++. This loop would continue until counter reached 
+smallerValue. Then we returned result, which was the gcf.
 
 */
 public class Stats {
