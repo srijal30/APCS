@@ -52,7 +52,7 @@ public class Commafier {
           return stringNumber;
         }
         //Recursive Reduction
-        return commafyR(number/1000) + "," + stringNumber.substring( stringNumber.length()-3, stringNumber.length() );
+        return commafyR(number/1000) + "," + stringNumber.substring(stringNumber.length()-3);
     }
   //Iterative
    public static String commafyF(int number) {
