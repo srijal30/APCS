@@ -61,7 +61,7 @@ public class Commafier {
          */
         //Convert number to a string
         String stringNumber = Integer.toString(number);
-     	String result;
+     	  String result;
         //If number is less than 1000, and doesnt need commas
         if (stringNumber.length() < 4) {
             return stringNumber;
