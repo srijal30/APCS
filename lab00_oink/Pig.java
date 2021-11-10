@@ -1,22 +1,26 @@
-/***
- * TNPG: Pigs Can Fly (Perry Huang, Salaj Rijal, Faiyaz Rafee, Andrew Piatetsky) and Burnt Peanut
- * APCS
- * Lab00 -- Etterbay Odingcay Oughthray Ollaborationcay/String manipulation and iteration and recursion/Create a pig latin translator.
- * 2021-11-09
- * time spent: 40min
- *
- *
- * Discoveries:
- * Taking a problem step by step is easier than solving everything at once.
- * Creating methods to traverse a string becomes easier with practice
- * Substring kind of allows us to turn each string into a list of letters
- *
- * Questions:
- * 
- *
- * class Pig
- * a Pig Latin translator
- ***/
+/**
+TNPG: Pigs Can Fly (Perry Huang, Salaj Rijal, Faiyaz Rafee, Andrew Piatetsky) and Burnt Peanut
+APCS
+Lab00 -- Etterbay Odingcay Oughthray Ollaborationcay/String manipulation and iteration and recursion/Create a pig latin translator.
+2021-11-09
+time spent: .8 hour + 1 hour + .5 hour
+
+Discoveries:
+-Taking a problem step by step is easier than solving everything at once.
+-Creating methods to traverse a string becomes easier with practice
+-Substring kind of allows us to turn each string into a list of letters
+-In order to use scanner, you need to import it and then create and instance of class Scanner
+-To immplement scanner, we made it so that while there were still characters left to process, a loop
+would go throught and 
+
+Questions:
+-How would we implement special cases?
+-Are there any built in methods that could help us?
+-How can we check if our solutions are correct using the solutions given in excel?
+
+class Pig
+a Pig Latin translator
+ **/
 
 import java.util.Scanner;
 
@@ -25,11 +29,9 @@ public class Pig
   private static final String VOWELS = "aeiouy";
   private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   private static final String LOWER = "abcdefghijklmnopqrstuvwxyz";
-  private static final String PUNC = "!.?;:";
-
-
-  // Methods that resolve vowel related issues
-
+  private static final String PUNCS = "!.?;:";
+  
+  //"IndexOf" Method
   public static boolean hasA( String w, String letter ) {
     /*
     *checks for letter in a string
@@ -40,28 +42,43 @@ public class Pig
       }
     }
     return false;
-
-  }//end hasA()
-
+  }
+ 
+  //Classification Methods
   public static boolean isAVowel( String letter ) {
     /*
     *tells wheter a letter is a vowel
     */
-
-    if (hasA(VOWELS,letter)) {
-      return true;
-    }
-
-    return false;
-
+    return hasA(VOWELS, letter);
+  }
+  
+  public static boolean isACap( String letter ) { 
+    /*
+    *checks to see if the latter is a capital letter by using caps
+    */
+    return hasA(CAPS, letter);
   }
 
+  public static boolean isASpace ( String space ) {
+     /*
+     *returns true is the string inputed (letter) is a space
+     */
+     return space.equals(" ");
+  }
+
+  public static boolean isPunc (String letter){
+    /*
+    *checks if letter is a punctuation mark defined in PUNCS
+    */
+    return hasA(PUNCS, letter);
+  }
+  
+  //Indexing Methods
   public static boolean beginsWithV ( String w ) {
 		/*
     *returns true if the sentence begins with a vowel
     */
-    return isAVowel(w.substring(0,1));
-
+    return isAVowel( w.substring(0,1) );
   }
 
   public static int indexOfV ( String w ) {
@@ -69,22 +86,24 @@ public class Pig
     *finds index of first vowel (linear search)
     */
     for (int index = 0; index < w.length(); index ++) {
-      if (isAVowel(w.substring(index,index+1))) {
+      if ( isAVowel(w.substring(index,index+1)) ) {
         return index;
       }
     }
-
     return -1;
   }
-
-  public static boolean isACap( String letter ) { 
-		/*
-    *checks to see if the latter is a capital letter by using caps
+  
+  
+  public static int indexOfCap ( String w ) {
+    /*
+    *returns index of capital letter, if none then returns -1
     */
-    if (hasA(CAPS,letter)) {
-      return true;
+    for (int index = 0; index < w.length(); index ++) {
+        if (isACap(w.substring(index,index+1))) {
+          return index;
+        }
     }
-    return false;
+    return -1;
   }
 
   public static boolean firstCap ( String w ) {
@@ -97,20 +116,8 @@ public class Pig
     return false;
   }
 
-  public static int indexOfCap ( String w ) {
-		/*
-    *returns index of capital letter, if none then returns -1
-		*/
-		for (int index = 0; index < w.length(); index ++) {
-        if (isACap(w.substring(index,index+1))) {
-          return index;
-        }
-    }
 
-    return -1;
-  }
-
-  public static int indexOflower ( String letter ) {
+  public static int indexOfLower ( String letter ) {
     /*
     *finds the index of the letter based on the alphabet at the top
     */
@@ -134,6 +141,7 @@ public class Pig
     return null;
   }
 
+  
   public static boolean isALetter ( String chara ) {
 		/*
     *Returns true if the String inputed is a letter (capital or lowercase)
@@ -143,29 +151,21 @@ public class Pig
     }
     return false;
   }
+  
 
   public static int indexOfPunc ( String w ) {
 		/*
     *returns index of Punctuation mark, -1 means that it doesn't exist
     */
     for (int index = 0; index < w.length(); index ++) {
-        if (!(isALetter(w.substring(index,index+1)))) {
+
+        if ( isPunc(w.substring(index,index+1)) ) {
           return index;
         }
     }
     return -1;
   }
   
-  //Methods for identifying and modifying strings based on spaces
-  public static boolean isASpace ( String space ) {
-		 /*
-     *returns true is the string inputed (letter) is a space
-     */
-     if (space.equals(" ")) {
-      return true;
-     }
-     return false;
-  }
 
   //Returns index of the next space and -1 if no more spaces
   public static int indexOfSpace ( String w ) {
@@ -198,7 +198,7 @@ public class Pig
     else {pig = w + "ay"; }
 
     if (firstCap(w)) {
-      String capLetter = findUpper(indexOflower((pig.substring(0,1)))); //Turns first letter of pig string into an uppercase letter and stores in variable
+      String capLetter = findUpper(indexOfLower((pig.substring(0,1)))); //Turns first letter of pig string into an uppercase letter and stores in variable
       pig = capLetter + (pig.substring(1)).toLowerCase(); //Adds capital first letter to 
     }
 
@@ -208,6 +208,7 @@ public class Pig
   // Can be used to translate sentences, wordToPig does actual singular words
   public static String engToPig( String w ) {
 
+    
     if (indexOfSpace(w) == -1) { //If no space means a one word so can miss the loop
       return wordToPig(w);
     }
@@ -231,8 +232,9 @@ public class Pig
     Scanner sc = new Scanner( System.in );
 
     while( sc.hasNext() ) {
-      System.out.println( engToPig( sc.next() ) );
+      System.out.println( engToPig( sc.nextLine() ) );
     }
+
   }//end main()
   
 }//end class Pig
