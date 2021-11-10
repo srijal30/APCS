@@ -18,22 +18,30 @@
  * a Pig Latin translator
  ***/
 
-import java.util.Scanner;
-
 public class Pig
 {
-  private static final String VOWELS = "aeiouy";
+  private static final String VOWELS = "aeiou";
   private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   private static final String LOWER = "abcdefghijklmnopqrstuvwxyz";
   private static final String PUNC = "!.?;:";
 
 
-  // Methods that resolve vowel related issues
 
+
+  /** ==================================
+   * 
+   * Methods that resolve vowel related issues
+   * 
+   ================================== **/ 
+
+  /*=====================================
+    boolean hasA(String,String) -- checks for a letter in a String
+    pre:  w != null, letter.length() == 1
+    post: hasA("cat", "a") -> true
+    hasA("cat", "p")       -> false
+    =====================================*/
   public static boolean hasA( String w, String letter ) {
-    /*
-    *checks for letter in a string
-    */
+
     for (int index = 0; index < w.length(); index ++) {
       if (w.substring(index,index+1).equals(letter)) {
         return true;
@@ -43,10 +51,12 @@ public class Pig
 
   }//end hasA()
 
+
+  /*=====================================
+    boolean isAVowel(String) -- tells whether a letter is a vowel
+    precondition: letter.length() == 1
+    =====================================*/
   public static boolean isAVowel( String letter ) {
-    /*
-    *tells wheter a letter is a vowel
-    */
 
     if (hasA(VOWELS,letter)) {
       return true;
@@ -56,18 +66,16 @@ public class Pig
 
   }
 
+  //Returns true if the sentence begins with a vowel
   public static boolean beginsWithV ( String w ) {
-		/*
-    *returns true if the sentence begins with a vowel
-    */
+
     return isAVowel(w.substring(0,1));
 
   }
 
+  //Finds index of first vowel (Linear search)
   public static int indexOfV ( String w ) {
-		/*
-    *finds index of first vowel (linear search)
-    */
+
     for (int index = 0; index < w.length(); index ++) {
       if (isAVowel(w.substring(index,index+1))) {
         return index;
@@ -77,31 +85,40 @@ public class Pig
     return -1;
   }
 
+
+
+
+  /** ==================================
+   * 
+   * Functions which provide functionality when working with capital letters in translator
+   *
+    ==================================**/
+
+  //Checks to see if the letter is a capital letter by using CAPS string initialized at the top of code
   public static boolean isACap( String letter ) { 
-		/*
-    *checks to see if the latter is a capital letter by using caps
-    */
+
     if (hasA(CAPS,letter)) {
       return true;
     }
     return false;
+
   }
 
+
+  // Checks to see if first letter is capital and returns true if it is
   public static boolean firstCap ( String w ) {
-		/*
-    *checks to see if first letter is a capital and returns true if it is
-    */
+
     if ( indexOfCap(w) == 0 ) {
       return true;
     }
     return false;
   }
 
+
+  //Returns index of capital letter, if none then returns -1
   public static int indexOfCap ( String w ) {
-		/*
-    *returns index of capital letter, if none then returns -1
-		*/
-		for (int index = 0; index < w.length(); index ++) {
+
+    for (int index = 0; index < w.length(); index ++) {
         if (isACap(w.substring(index,index+1))) {
           return index;
         }
@@ -110,10 +127,9 @@ public class Pig
     return -1;
   }
 
+  //Finds the index of the letter based on the alphabet at the top of code (LOWER String variable)
   public static int indexOflower ( String letter ) {
-    /*
-    *finds the index of the letter based on the alphabet at the top
-    */
+
     for (int index = 0; index < LOWER.length(); index ++) {
         if ((LOWER.substring(index,index+1).equals(letter))) {
           return index;
@@ -122,10 +138,9 @@ public class Pig
     return -1;
   }
 
+  //Finds the index of the uppercase letter based on the alphabeta at the top of code (CAPS String variable)
   public static String findUpper ( int capIndex ) {
-		/*
-    *finds the index of the uppercase letter based on the alphabeta at the top of code
-    */
+
     for (int index = 0; index < CAPS.length(); index ++) {
         if (capIndex == index) {
           return CAPS.substring(index,index+1);
@@ -134,20 +149,25 @@ public class Pig
     return null;
   }
 
+
+  /** ==================================
+   * 
+   * Methods useful in translating phrases with punctuation
+   * 
+   * ==================================**/
+
+  //Returns true if the String inputed is a letter (capital or lowercase)
   public static boolean isALetter ( String chara ) {
-		/*
-    *Returns true if the String inputed is a letter (capital or lowercase)
-    */
+
     if (hasA(CAPS,chara) || hasA(LOWER,chara)) {
       return true;
     }
     return false;
   }
 
+  //Returns index of Punctuation mark, -1 means that it doesn't exist
   public static int indexOfPunc ( String w ) {
-		/*
-    *returns index of Punctuation mark, -1 means that it doesn't exist
-    */
+
     for (int index = 0; index < w.length(); index ++) {
         if (!(isALetter(w.substring(index,index+1)))) {
           return index;
@@ -155,12 +175,16 @@ public class Pig
     }
     return -1;
   }
-  
-  //Methods for identifying and modifying strings based on spaces
+
+  /** ==================================
+   * 
+   * Methods for identifying and modifying strings based on spaces
+   * 
+     ==================================**/
+
+  //returns true is the string inputed (letter) is a space
   public static boolean isASpace ( String space ) {
-		 /*
-     *returns true is the string inputed (letter) is a space
-     */
+
      if (space.equals(" ")) {
       return true;
      }
@@ -179,11 +203,24 @@ public class Pig
 
   }
 
-  //Translator methods for actually going from English to Pig Latin
+
+
+
+
+
+
+  /** ==================================
+   * 
+   * Translator methods for actually going from English to Pig Latin
+   * 
+   * ==================================**/
+
   public static String wordToPig( String w ) {
+
     String pig = "";
     String punct = "";
   
+
     if ( indexOfPunc(w) != -1 ) {
       punct = w.substring(w.length()-1);
       w = w.substring(0,w.length()-1);
@@ -197,6 +234,8 @@ public class Pig
     if (vPos != -1) { pig = w.substring(vPos) + w.substring(0,vPos) + "ay"; }
     else {pig = w + "ay"; }
 
+
+
     if (firstCap(w)) {
       String capLetter = findUpper(indexOflower((pig.substring(0,1)))); //Turns first letter of pig string into an uppercase letter and stores in variable
       pig = capLetter + (pig.substring(1)).toLowerCase(); //Adds capital first letter to 
@@ -204,6 +243,8 @@ public class Pig
 
     return pig + punct;
   } //end wordToPig
+
+
 
   // Can be used to translate sentences, wordToPig does actual singular words
   public static String engToPig( String w ) {
@@ -224,15 +265,24 @@ public class Pig
     pig += wordToPig(w);//Adds the ending because no more spaces (last word added at the end)
 
     return pig;
-  } //end engToPig
+  } //ehnd engToPig
+
 
   public static void main( String[] args ) {
-    //instantiate a Scanner with STDIN as its bytestream
-    Scanner sc = new Scanner( System.in );
 
-    while( sc.hasNext() ) {
-      System.out.println( engToPig( sc.next() ) );
+    String sentence = "";
+
+    for (String s : args ) {
+      //System.out.println(engToPig(s));
+      sentence += " " + s;
     }
+
+    sentence = sentence.substring(1);
+    System.out.println(sentence);
+    System.out.println(engToPig(sentence));
+
+
+
   }//end main()
-  
+
 }//end class Pig

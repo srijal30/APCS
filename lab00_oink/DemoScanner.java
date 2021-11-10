@@ -3,19 +3,26 @@
  * APCS
  * Lab00 -- Etterbay Odingcay Oughthray Ollaborationcay/String manipulation and iteration and recursion/Create a pig latin translator.
  * 2021-11-09
- * time spent: 40min
+ * time spent: 1.5 hours
  *
  *
- * Discoveries:
+ * DISCO
  * Taking a problem step by step is easier than solving everything at once.
  * Creating methods to traverse a string becomes easier with practice
  * Substring kind of allows us to turn each string into a list of letters
  *
- * Questions:
+ * QCC
+ * How does scanner work?
+ * How to make sentences display same line?
  * 
+ * HOW WE UTILIZED SCANNER DEMO (v1)
+ * We used scanner to put inputs into Pig.java after we ran it so it would produce output based on those inputs.
  *
- * class Pig
- * a Pig Latin translator
+ * WHAT CAUSES THE RUNTIME ERROR IN THE SCANNER DEMO
+ * When we tested DemoScanner there was no error. We don't know or there's no error.
+ *
+ * NEW IN v1
+ * implemented scanner
  ***/
 
 import java.util.Scanner;
@@ -231,8 +238,10 @@ public class Pig
     Scanner sc = new Scanner( System.in );
 
     while( sc.hasNext() ) {
-      System.out.println( engToPig( sc.next() ) );
+      System.out.print( engToPig( sc.next() ) + " " );
     }
+    System.out.println();
   }//end main()
+  
   
 }//end class Pig
