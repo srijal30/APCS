@@ -28,10 +28,10 @@ public class Pig
 {
   private static final String VOWELS = "aeiouy";
   private static final String CAPS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  private static final String LOWER = "abcdefghijklmnopqrstuvwxyz";
-  private static final String PUNCS = "!.?;:";
+  private static final String LOWERS = "abcdefghijklmnopqrstuvwxyz";
+  private static final String PUNCS = "!.?;:,";
   
-  //"IndexOf" Method
+  //Conditional Methods
   public static boolean hasA( String w, String letter ) {
     /*
     *checks for letter in a string
@@ -44,26 +44,25 @@ public class Pig
     return false;
   }
  
-  //Classification Methods
   public static boolean isAVowel( String letter ) {
     /*
     *tells wheter a letter is a vowel
     */
-    return hasA(VOWELS, letter);
+    return hasA(VOWELS, toLower(letter)/*letter.toLowerCase()*/);
   }
   
-  public static boolean isACap( String letter ) { 
+  public static boolean isUpperCase( String letter ) { 
     /*
-    *checks to see if the latter is a capital letter by using caps
+    *checks to see if the letter is a capital letter by using CAPS
     */
     return hasA(CAPS, letter);
   }
 
-  public static boolean isASpace ( String space ) {
-     /*
-     *returns true is the string inputed (letter) is a space
-     */
-     return space.equals(" ");
+  public static boolean isLowerCase( String letter) {
+    /*
+    *checks to see if the letter is a lowercase letter by using LOWERS
+    */
+    return hasA(LOWERS, letter);
   }
 
   public static boolean isPunc (String letter){
@@ -72,17 +71,36 @@ public class Pig
     */
     return hasA(PUNCS, letter);
   }
-  
-  //Indexing Methods
+
   public static boolean beginsWithV ( String w ) {
 		/*
     *returns true if the sentence begins with a vowel
     */
     return isAVowel( w.substring(0,1) );
   }
-
-  public static int indexOfV ( String w ) {
-		/*
+  
+  public static boolean beginsWithUpper ( String w ) {
+    /*
+    *checks to see if first letter is a capital and returns true if it is
+    */
+    return isUpperCase(w.substring(0, 1));
+  }
+  
+  //Indexing Methods
+  public static int indexOfSpace ( String w ) {
+    /*
+    *returns index of the next space and -1 if no more spaces
+    */
+    for (int index = 0; index < w.length(); index ++) {
+      if (" ".equals(w.substring(index,index+1))) {
+        return index;
+      }
+    }
+    return -1;
+  }
+  
+  public static int firstVowel ( String w ) {
+    /*
     *finds index of first vowel (linear search)
     */
     for (int index = 0; index < w.length(); index ++) {
@@ -92,147 +110,83 @@ public class Pig
     }
     return -1;
   }
-  
-  
-  public static int indexOfCap ( String w ) {
+ 
+  //Translating Methods
+  public static String toUpper (String w) {
     /*
-    *returns index of capital letter, if none then returns -1
+    *converts all letters of w to uppercase
     */
-    for (int index = 0; index < w.length(); index ++) {
-        if (isACap(w.substring(index,index+1))) {
-          return index;
-        }
+    String result = "";
+    for(int i = 0; i < w.length(); i++){
+      String letter = w.substring(i, i+1);
+      if( isLowerCase(letter) ){
+        int index = LOWERS.indexOf(letter);
+        result += CAPS.substring(index, index+1);
+      }
+      else{
+        result += letter;
+      }
     }
-    return -1;
+    return result;
   }
-
-  public static boolean firstCap ( String w ) {
-		/*
-    *checks to see if first letter is a capital and returns true if it is
-    */
-    if ( indexOfCap(w) == 0 ) {
-      return true;
-    }
-    return false;
-  }
-
-
-  public static int indexOfLower ( String letter ) {
+  
+  public static String toLower (String w) {
     /*
-    *finds the index of the letter based on the alphabet at the top
+    *converts all uppercase letters in w to lowercase using LOWERS
     */
-    for (int index = 0; index < LOWER.length(); index ++) {
-        if ((LOWER.substring(index,index+1).equals(letter))) {
-          return index;
-        }
+    String result = "";
+    for(int i = 0; i < w.length(); i++){
+      String letter = w.substring(i, i+1);
+      if( isUpperCase(letter) ){
+        int index = CAPS.indexOf(letter);
+        result += LOWERS.substring(index, index+1);
+      }
+      else{
+        result += letter;
+      }
     }
-    return -1;
-  }
-
-  public static String findUpper ( int capIndex ) {
-		/*
-    *finds the index of the uppercase letter based on the alphabeta at the top of code
-    */
-    for (int index = 0; index < CAPS.length(); index ++) {
-        if (capIndex == index) {
-          return CAPS.substring(index,index+1);
-        }
-    }
-    return null;
-  }
-
-  
-  public static boolean isALetter ( String chara ) {
-		/*
-    *Returns true if the String inputed is a letter (capital or lowercase)
-    */
-    if (hasA(CAPS,chara) || hasA(LOWER,chara)) {
-      return true;
-    }
-    return false;
+    return result;
   }
   
-
-  public static int indexOfPunc ( String w ) {
-		/*
-    *returns index of Punctuation mark, -1 means that it doesn't exist
-    */
-    for (int index = 0; index < w.length(); index ++) {
-
-        if ( isPunc(w.substring(index,index+1)) ) {
-          return index;
-        }
-    }
-    return -1;
-  }
-  
-
-  //Returns index of the next space and -1 if no more spaces
-  public static int indexOfSpace ( String w ) {
-
-    for (int index = 0; index < w.length(); index ++) {
-        if (isASpace(w.substring(index,index+1))) {
-          return index;
-        }
-    }
-    return -1;
-
-  }
-
-  //Translator methods for actually going from English to Pig Latin
   public static String wordToPig( String w ) {
-    String pig = "";
     String punct = "";
+    String firstLetter = "";
   
-    if ( indexOfPunc(w) != -1 ) {
+    if( isPunc(w.substring(w.length()-1)) ){
       punct = w.substring(w.length()-1);
-      w = w.substring(0,w.length()-1);
+      w = w.substring(0, w.length()-1);
     }
 
-    if ( beginsWithV(w) ) {
-      pig = w + "way";
-    }
+    if( beginsWithV(w) ) return w + "way" + punct;
+    
+    int indexOfV = firstVowel(w);
+    firstLetter = w.substring( indexOfV, indexOfV + 1);
 
-    int vPos = indexOfV(w);
-    if (vPos != -1) { pig = w.substring(vPos) + w.substring(0,vPos) + "ay"; }
-    else {pig = w + "ay"; }
+    if( isUpperCase(w.substring(0, 1)) ) firstLetter = toUpper(firstLetter);
 
-    if (firstCap(w)) {
-      String capLetter = findUpper(indexOfLower((pig.substring(0,1)))); //Turns first letter of pig string into an uppercase letter and stores in variable
-      pig = capLetter + (pig.substring(1)).toLowerCase(); //Adds capital first letter to 
-    }
-
-    return pig + punct;
+    return firstLetter + toLower( w.substring(indexOfV + 1) ) + toLower( w.substring(0, indexOfV) ) + "ay" + punct;
   } //end wordToPig
 
-  // Can be used to translate sentences, wordToPig does actual singular words
   public static String engToPig( String w ) {
-
-    
-    if (indexOfSpace(w) == -1) { //If no space means a one word so can miss the loop
+    //Base Case
+    if( indexOfSpace(w) < 0 ){
       return wordToPig(w);
     }
+    //Recursive Reduction
+    String firstWord = w.substring(0, indexOfSpace(w));
+    String recursiveReduction = w.substring(indexOfSpace(w) + 1);
+    return wordToPig(firstWord) + " " + engToPig(recursiveReduction);
+  }
 
-    String pig = "";
-    int spaceIndex = 0;
-
-    while (indexOfSpace(w) != -1) {
-      spaceIndex = indexOfSpace(w); //Index of the next space
-      pig += wordToPig(w.substring(0,spaceIndex)) + " ";
-      w = w.substring(spaceIndex+1); //Cuts original string everytime
-    }
-
-    pig += wordToPig(w);//Adds the ending because no more spaces (last word added at the end)
-
-    return pig;
-  } //end engToPig
-
+  //Main
   public static void main( String[] args ) {
     //instantiate a Scanner with STDIN as its bytestream
     Scanner sc = new Scanner( System.in );
 
     while( sc.hasNext() ) {
-      System.out.println( engToPig( sc.nextLine() ) );
+      String phrase = sc.nextLine();
+      System.out.println( phrase );
+      System.out.println( engToPig(phrase) + "\n");
     }
 
   }//end main()
