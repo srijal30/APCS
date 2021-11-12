@@ -151,21 +151,15 @@ public class Pig
   public static String wordToPig( String w ) {
     String punct = "";
     String firstLetter = "";
-  
     if( isPunc(w.substring(w.length()-1)) ){
       punct = w.substring(w.length()-1);
       w = w.substring(0, w.length()-1);
     }
-
     if( beginsWithV(w) ) return w + "way" + punct;
-
     if( firstVowel(w) < 0) return w + "ay" + punct;
-    
     int indexOfV = firstVowel(w);
     firstLetter = w.substring( indexOfV, indexOfV + 1);
-
     if( isUpperCase(w.substring(0, 1)) ) firstLetter = toUpper(firstLetter);
-
     return firstLetter + toLower( w.substring(indexOfV + 1) ) + toLower( w.substring(0, indexOfV) ) + "ay" + punct;
   } //end wordToPig
 
@@ -184,7 +178,6 @@ public class Pig
   public static void main( String[] args ) {
     //instantiate a Scanner with STDIN as its bytestream
     Scanner sc = new Scanner( System.in );
-
     int line = 1;
     while( sc.hasNext() ) {
       String phrase = sc.nextLine();
@@ -192,5 +185,4 @@ public class Pig
     }
 
   }//end main()
-  
 }//end class Pig
