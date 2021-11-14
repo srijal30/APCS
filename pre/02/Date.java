@@ -13,6 +13,7 @@ public class Date {
         year = 2021;
 
         //American Format
+        /*
         System.out.print(day);
         System.out.print(", ");
         System.out.print(month);
@@ -20,6 +21,8 @@ public class Date {
         System.out.print(date);
         System.out.print(", ");
         System.out.println(year);
+        */
+        System.out.printf("%s: %s %s, %\n", day, month, date, year);
 
         //European Format
         System.out.print(day);
