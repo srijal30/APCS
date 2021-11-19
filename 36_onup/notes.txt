@@ -1,0 +1,54 @@
+-3 Types of Errors:
+ Compile-Time: Due to misused syntax
+
+ Run-TimeL Occur when project is running
+
+ Logic: Not an error with the program, it works at it is meant to, 
+ but an error regarding the intedned result not working.
+
+-Compile-Time Errors:
+ Usually only the first error is reliable, as the rest of the Errors
+ might be a result of it.
+
+Check for these when looking for common errors:
+ 1. Nesting
+ 2. Casing
+ 3. Semicolons
+ 4. Matching quotes
+ 5. Type Matching
+ 6. Right arguements
+ 7. Static and instance invocations and methods
+
+ If all else fails debug by bisection. Erase half of code and run 
+ program. If runs, then you know error is in deleted half.
+
+ Remember compilier doesnt always give right answer.
+
+-Run-Time Errors:
+ StackOverFlowError from infinite recursion or loop. Use print statements
+ to help understand the conditions to try to pinpoint where the 
+ mistake is.
+
+ Exceptions are what runtime errors are called that are displayed in
+ terminal.
+
+ Make sure your print statemts are clear to read so you can understand
+ the output of your program.
+
+ -Logic Errors:
+  To solve these type of errors try to trace your program step by step.
+  You need to understand how your code works. 
+
+  Try to make your code as readable as possible and when testing methods, you
+  can print their return values before actulaly returning.
+
+  Duckies, breaks, and other human beings for help.
+
+  When you find bug... learn from it.
+
+
+
+
+
+
+
