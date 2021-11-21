@@ -30,10 +30,12 @@ public class YoRPG {
   private Protagonist pat;   
   private Monster smaug;     
 
+  //Game Vars
   private int moveCount;
   private boolean gameOver;
   private int difficulty;
 
+  //Input Readers
   private InputStreamReader isr;
   private BufferedReader in;
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,29 +62,36 @@ public class YoRPG {
     and instantiates a Protagonist
     =============================================*/
   public void newGame() {
-    String s;
-    String name = "";
-    s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
+    String s; //Screen
+    String name = ""; //Name
 
+    s = "~~~ Welcome to Ye Olde RPG! ~~~\n";
     s += "\nChoose your difficulty: \n";
     s += "\t1: Easy\n";
     s += "\t2: Not so easy\n";
     s += "\t3: Beowulf hath nothing on me. Bring it on.\n";
     s += "Selection: ";
-    System.out.print( s );
 
+    System.out.print( s ); //Print Screen
+
+    //input for difficulty
     try {
-	    difficulty = Integer.parseInt( in.readLine() );
+	    difficulty = Integer.parseInt( in.readLine() ); //Checks if this causes error
     }
-    catch ( IOException e ) { }
+    catch ( IOException e ) { //If error is caught
+      System.out.println("An error has occured, plz try again.");
+    }
 
     s = "Intrepid protagonist, what doth thy call thyself? (State your name): ";
     System.out.print( s );
 
+    //input for name
     try {
 	    name = in.readLine();
     }
-    catch ( IOException e ) { }
+    catch ( IOException e ) {
+      System.out.println("An error has occured, plz try again.");
+    }
 
     //instantiate the player's character
     pat = new Protagonist( name );
@@ -102,7 +111,8 @@ public class YoRPG {
 
     if ( Math.random() >= ( difficulty / 3.0 ) )
 	    System.out.println( "\nNothing to see here. Move along!" );
-    else {
+    
+      else {
 	    System.out.println( "\nLo, yonder monster approacheth!" );
 
 	    smaug = new Monster();
@@ -117,7 +127,9 @@ public class YoRPG {
           System.out.println( "\t1: Nay.\n\t2: Aye!" );
           i = Integer.parseInt( in.readLine() );
         }
-        catch ( IOException e ) { }
+        catch ( IOException e ) {
+          System.out.println("An error has occured, plz try again.");
+        }
 
         if ( i == 2 )
           pat.specialize();
@@ -132,6 +144,8 @@ public class YoRPG {
 
         System.out.println( "\n" + "Ye Olde Monster smacked " + pat.getName() +
                             " for " + d2 + " points of damage.");
+
+        System.out.println( smaug + "\n" + pat);
 	    }//end while
 
 	    //option 1: you & the monster perish
@@ -163,20 +177,21 @@ public class YoRPG {
     //As usual, move the begin-comment bar down as you progressively 
     //test each new bit of functionality...
 
-    /*================================================
     //loading...
     YoRPG game = new YoRPG();
-
+    
     int encounters = 0;
-
+    
     while( encounters < MAX_ENCOUNTERS ) {
-    if ( !game.playTurn() )
-    break;
-    encounters++;
-    System.out.println();
+      if ( !game.playTurn() ){
+        break;
+      }
+      encounters++;
+      System.out.println();
     }
-
+    
     System.out.println( "Thy game doth be over." );
+    /*================================================
 	  ================================================*/
   }//end main
 
