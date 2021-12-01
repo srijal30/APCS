@@ -1,5 +1,5 @@
 /*
-Salaj Rijal
+SWAG SWASH : Ariel Fuchs, Salaj Rijal, Micheal Kamela
 APCS
 HW 40 -- 2D Array Work: using loops to help write methods for 2D arrays
 2021-11-30
