@@ -4,6 +4,23 @@ APCS
 HW 40 -- 2D Array Work: using loops to help write methods for 2D arrays
 2021-11-30
 time spent: .33 hrs
+
+DISCO:
+-You can access the length for an array in a array but doing a[i].length;
+i being the index of the array in question.
+
+-For each is really helpful when creating these methods as we dont really need indexes.
+
+-When nesting for loops, make sure that the variables in the 2 for loop statements are 
+different. (With for-each you avoid this problem)
+
+QCC:
+-Is there another way to do this without nesting for loops?
+
+-Is there a built in method that can help us?
+
+-What limit is there on the dimensions of an array?... is there a  (2^32)D?
+
 */
 
 public class TwoDimArray
