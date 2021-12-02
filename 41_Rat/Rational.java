@@ -102,25 +102,25 @@ public class Rational{
 			
 			//Test2
 			System.out.println("\nR1:");
-			System.out.println(			
+            System.out.println(r1);
 			System.out.println("\nR2:");
-			System.out.println(			
+            System.out.println(r2);
 			System.out.println("\nMultiplying r1 by r2 gets you...");
 			r1.multiply(r2);
-			System.out.println(			
+			System.out.println(r1);
 			System.out.println("\nDividing that product with r2 gets you...");
 			r1.divide(r2);
 			System.out.println(r1);
 			
 			//Test3
-			System.out.println("\n=============");
+			System.out.println("=============");
 			Rational r3 = new Rational(2, 3);
 			Rational r4 = new Rational();
 			
 			System.out.println("\nR3:");
 			System.out.println(r3);
 			System.out.println("\nR4:");
-			System.out.println(			
+			System.out.println(r4);
 			System.out.println("\nMultiplying r3 by r4 gets you...");
 			r3.multiply(r4);
 			System.out.println(r3);
