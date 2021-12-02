@@ -7,10 +7,15 @@ time spent: 24 minutes
 
 DISCO:
 -KEEP CHANGE FLIP (KCF)
--
+-Must typecast either num or denom to double before dividing in floatValue(), otherwise
+integer division is done.
+-You need getter functions becasue n and d are private.
 
 QCC:
-
+-Should we have the value in 2String?
+-What should we do if we detect that we are dividing by 0?
+-What does NaN mean? Is this because we were dividing by 0? Why did this not return an error?
+-Is getter function the most optimal way to access d and n of other Rational object?
 */
 
 public class Rational{
