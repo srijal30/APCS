@@ -1,11 +1,10 @@
-import java.util.List;
 
 /*
 SWAG SWASH = Salaj Rijal, Ariel Fuchs, Michael Kamela
 APCS
 HW 45 -- Array of Titanium -- Implement a Interface for SuperArray
 2021-12-08
-time spent: 8:35
+time spent: .5 hours
 
 DISCO:
 -Unlike SuperClasses, Interfaces do not provide you with premade functionality, rather
