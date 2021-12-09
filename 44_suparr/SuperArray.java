@@ -17,7 +17,7 @@ QCC:
 -How can we improve our code
 */
 
-import java.util.Arrays;
+
 /***************************
  * class SuperArray
  * Wrapper class for array. Facilitates resizing,
