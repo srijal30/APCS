@@ -98,7 +98,11 @@ public class BubbleSort
   //                Returns sorted copy of input ArrayList.
   public static ArrayList<Comparable> bubbleSort( ArrayList<Comparable> input )
   {
-    ArrayList<Comparable> data = input;
+    ArrayList<Comparable> data = new ArrayList<Comparable>();
+    for( Comparable value: input ){
+      data.add(value);
+    }
+
     //for each pass do this
     //we loop size of array - 1 times
     for( int i = 0; i < data.size()-1; i++){
