@@ -20,8 +20,7 @@ public class StringExplorer
 		System.out.println ("sample.toLowerCase() = " + lowerCase);
 		System.out.println ("After toLowerCase(), sample = " + sample);
 		
+		System.out.println( sample.indexOf("slow" ) ) ;
 		//  Try other methods here:
-
 	}
-
 }

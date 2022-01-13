@@ -29,21 +29,43 @@ public class Magpie3
 	 */
 	public String getResponse(String statement)
 	{
+		statement = statement.toLowerCase();
+		
 		String response = "";
-		if (statement.length() == 0)
-		{
-			response = "Say something, please.";
-		}
-		else if (findKeyword(statement, "no") >= 0)
+		if( statement.trim().length() < 1 ){
+			response =  "Say something, please"; 
+		} 	
+		else if (findKeyword( statement, "no") >= 0)
 		{
 			response = "Why so negative?";
 		}
-		else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0)
+		else if (findKeyword( statement, "mother") >= 0
+				|| findKeyword( statement, "father") >= 0
+				|| findKeyword( statement, "sister") >= 0
+				|| findKeyword( statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
+		}
+		else if (findKeyword( statement, "dog") >= 0 
+				|| findKeyword( statement, "cat") >= 0 )
+		{
+			response = "Tell me more about your pets.";
+		}
+		else if (findKeyword( statement, "mykolyk") >= 0)
+		{
+			response = "He sounds like a good teacher.";
+		}
+		else if (findKeyword( statement, "salaj") >= 0 )
+		{
+			response = "wow salad is a healthy meal";
+		}
+		else if (findKeyword( statement, "perry") >= 0 )
+		{
+			response = "perry the platypus and doofenshmirtz";
+		}
+		else if (findKeyword( statement, "ariel") >= 0 )
+		{
+			response = "did you mean ArrTheFuchs?";
 		}
 		else
 		{

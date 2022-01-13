@@ -56,6 +56,18 @@ public class Magpie2
 		{
 			response = "He sounds like a good teacher.";
 		}
+		else if (statement.indexOf("salaj") >= 0 )
+		{
+			response = "wow salad is a healthy meal";
+		}
+		else if (statement.indexOf("perry") >= 0 )
+		{
+			response = "perry the platypus and doofenshmirtz";
+		}
+		else if (statement.indexOf("ariel") >= 0 )
+		{
+			response = "did you mean ArrTheFuchs?";
+		}
 		else
 		{
 			response = getRandomResponse();
