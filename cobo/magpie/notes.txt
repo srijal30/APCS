@@ -1,0 +1,12 @@
+FullStackDevs: Salaj Rijal, Perry Huang, Ariel Fuchs
+APCS
+HW 56 -- Turing Training Wheels/COLLEGE BOARD WORK
+2022-1-12
+time spent: >1 hour
+
+DISCO:
+-trim() gets rid of spaces to the left of first char, and spaces to the right of the 
+last char
+
+QCC:
+-why is cobo so hard
