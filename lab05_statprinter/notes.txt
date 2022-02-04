@@ -1,0 +1,28 @@
+Flying Sullen Actors : Faiyaz Rafee, Salaj Rijal, Alif Rahman
+APCS pd8
+L05 -- pulling it together -- Statprinter
+2022-02-03r
+time spent: 1 hr
+
+
+DISCO
+------------------------------------------------
+* Big O notation
+* Java conventions
+* We dont need an if-else statement 
+================================================
+
+
+QCC
+------------------------------------------------
+* Would using Arrays be more efficient than using ArrayLists?
+================================================
+
+
+
+MISC
+------------------------------------------------
+* Wish we were coding in python
+================================================
+
+
