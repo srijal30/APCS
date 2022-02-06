@@ -65,7 +65,7 @@ public class StatPrinter
   //  _frequency would be [0,0,3,2,0,1]
   public StatPrinter( ArrayList <Integer> data ) 
   { 
-    // big O complexity: O(n)
+    // big O complexity: O(n) where n is the size of data
     int max = max( data );
 
     _frequency = new ArrayList<Integer>();
@@ -89,7 +89,7 @@ public class StatPrinter
   //postcond: returns largest integer in data
   public Integer max( ArrayList <Integer> data ) 
   { 
-    // big O complexity: O(n)
+    // big O complexity: O(n) where n is the size of input data
     int max = data.get(0);
     for( int i = 1; i < data.size(); i++ ){
       if ( data.get(i) > max ) {
@@ -120,7 +120,7 @@ public class StatPrinter
   //postcond: returns list of modes in _frequency
   public ArrayList<Integer> getLocalModes() 
   {
-    // big O complexity: O(n)
+    // big O complexity: O(n) where n is the frequency size
     // initialize ArrayList to be returned
     ArrayList<Integer> modeList = new ArrayList<Integer>();
     //loop through _frequency and check if i is localMode 
@@ -136,7 +136,7 @@ public class StatPrinter
   //precond:  longestBar > 0
   public void printHistogram( int longestBar ) 
   {
-    //big O complexity: O(n^2)
+    //big O complexity: O(n) where n is the size of the input data
     for ( int i = 0; i < _frequency.size(); i++) {
       System.out.print( i + " : ");
 
