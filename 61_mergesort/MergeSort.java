@@ -8,7 +8,7 @@
   - An effective base case for the sort method would just be checking if the deck only has one element. 
   QCC:
   - What sorting method is faster than merge sort?
-  
+
   class MergeSort
   Implements mergesort on array of ints.
 
