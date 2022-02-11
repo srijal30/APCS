@@ -1,0 +1,51 @@
+==========
+ACTIVITY 1
+==========
+
+1a. public static sentimentVal( String )
+1b. This method requires a String parameter. If you pass a different parameter, it will return 0.
+1c. This method returns a double.
+
+2.
+Method Call                 Return value
+
+hands                       0.69
+handsome                    2.12
+handy                       2.28
+
+3a. It will compile.
+3b. It will not compile because sentimentVal does take floats as parameters and it doesn't return a string.
+3c. It will not compile because sentimentVal cannot take 2 parameters.
+
+==========
+ACTIVITY 2
+==========
+
+1. created method totalSentiment
+2. Tested SimpleReview.txt file with content:
+
+"This was a terrible restaurant! The pizza crust was too chewy, 
+and I disliked the pasta. I would definitely not come back."
+
+and got -2.92
+
+3. Made starRating and tested with:
+
+"This was a terrible restaurant! The pizza crust was too chewy, 
+and I disliked the pasta. I would definitely not come back."
+
+and got 2
+
+4. totalSentiment works by starting at index 0 of the string returned by 
+textToString() and then iterating through until a space is found, when a space is found,
+you create an int variable temp and store the current value of index. Then you keep on iterating
+until you find another space. Then the code will remove the puncuation of 
+content.substring(temp, index) and find the sentimentValue of that word and add it to
+the double totalSentiment. It will keep on iterating until index is no longer less than
+content.size()
+
+5a. I think that they make sense
+5b. take into account punctuation like exclamantion points, and sometimes positive words dont
+mean positive rating, for e.g "this restaurant is not the best"
+
+6. He did not take into account for a negative sentimentVal.
