@@ -1,3 +1,9 @@
+Flying sullen Actors: Alif Rahman, Faiyaz Rafee, Salaj Rijal
+APCS
+LAB 6 -- Read/Review/Expand -- Cobo Consumer Review Lab
+2022-2-14
+time spent: 4 hours
+
 ==========
 ACTIVITY 1
 ==========
@@ -24,22 +30,22 @@ ACTIVITY 2
 1. created method totalSentiment
 2. Tested SimpleReview.txt file with content:
 
-"This was a terrible restaurant! The pizza crust was too chewy, 
+"This was a terrible restaurant! The pizza crust was too chewy,
 and I disliked the pasta. I would definitely not come back."
 
 and got -2.92
 
 3. Made starRating and tested with:
 
-"This was a terrible restaurant! The pizza crust was too chewy, 
+"This was a terrible restaurant! The pizza crust was too chewy,
 and I disliked the pasta. I would definitely not come back."
 
 and got 2
 
-4. totalSentiment works by starting at index 0 of the string returned by 
+4. totalSentiment works by starting at index 0 of the string returned by
 textToString() and then iterating through until a space is found, when a space is found,
 you create an int variable temp and store the current value of index. Then you keep on iterating
-until you find another space. Then the code will remove the puncuation of 
+until you find another space. Then the code will remove the puncuation of
 content.substring(temp, index) and find the sentimentValue of that word and add it to
 the double totalSentiment. It will keep on iterating until index is no longer less than
 content.size()
@@ -49,3 +55,75 @@ content.size()
 mean positive rating, for e.g "this restaurant is not the best"
 
 6. He did not take into account for a negative sentimentVal.
+
+==========
+ACTIVITY 3
+==========
+
+3. indexOf is a method in the String class that finds the index of the first instance of the string input.
+substring is a method in the String class that can take one or two integer parameters. If it is given one integer parameter,
+it will return a substring starting from index of that parameter to the end of the string. If given two integer parameters,
+it will return a substring starting from index of the initial parameter to one less of the index of the other parameter. This
+is exactly why it is necessary to add 1 to the position of the space when copying the remained of the string.
+
+5. Static methods belongs to a class and can be used in any instance of a class, while a non-static method can access any
+static methods/variables without needing an instance of the class.
+
+6. We could just replace the randomAdjective call with randomNegativeAdj or randomPositiveAdj.
+
+==========
+ACTIVITY 4
+==========
+
+1. You would want to auto generate negative reviews when you want to make a tom foolery of other businesses.
+
+2. You would want to auto generate positive reviews when you are trying to boost ratings of a product.
+
+3. We decided to have a more positive review. To do this, we would replace all neutral and negative adjectives with positive adjectives.
+This will result in an overall stronger positive review.
+
+5. oneWord will be replaced by a substring that starts at index 1 inclusive and ends at the end of oneWord.
+
+6. In the actual list, there are no words with the * character in front of it.
+
+7. To create a super positive review, you can just replace the neutral / negative adjectives with adjectives with a sentimentVal of
+greater than 1 or some other arbitrary number.
+
+==========
+ACTIVITY 5
+==========
+
+1. We chose to implement this program because it was related to the program we made in this lab before. Our program checks to see if
+a string conveys the feeling of excitement in it by checking if it contains the "!".
+
+2. We made a program that fufilled the requirements set by the instructions and just made a program inspired by this lab.
+
+3. public static boolean isExcited(String). I chose to make the method this way because it's purpose is to see if a string conveys
+excitement by lookign for "!". It also has no reason to be non-static so I made it static.
+
+4. input.length(). This call returns the length of the String input. input.substring(i,i+1). This call returns the substring of input
+at the index of i. 
+
+5.     if (letter.equals("!")) {
+         // checks to see if there is a "!" --> conveys excitement
+         if (input.indexOf("?") < 1) {
+             // checks to see if there is no "?" --> "?" with "!" doesn't really convey excitement, it's more like nervousness.
+             excite = true;
+         }
+
+This code uses a nested conditional checking if two states of the input are true. If so, the boolean variable excite changes.
+This code could be written with an and statement inside the if conditional instead.
+
+6. for (int i = 0; i < input.length(); i++) {
+     // iterates through String Input
+     letter = input.substring(i, i+1);
+     // sets letter as the current index i of Input
+     if (letter.equals("!")) {
+         // checks to see if there is a "!" --> conveys excitement
+         if (input.indexOf("?") < 1) {
+             // checks to see if there is no "?" --> "?" with "!" doesn't really convey excitement, it's more like nervousness.
+             excite = true;
+         }
+
+This code uses a for loop, seeing if any iteration of the for loop will change the boolean excite.
+This code could be written with a while loop instead of a for loop.
