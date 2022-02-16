@@ -11,12 +11,13 @@ public class Gil{
         }
     
     /*
-    Adds a Queen to the board at position row, col. Also subtracts 1 from squares that the Queen can attack.
-    returns false if position is not available for a Queen.
-    returns true if it is.
+    PRECONDITION: 
+    -that _board[row][col] is a valid spot to place a queen
+    
+    SUMMARY:
+    Adds a Queen to the board at position row, col. Also subtracts 1 from squares that the Queen can attack..
     */
-    private boolean foo(int row, int col)
-    {
+    private boolean placeQueen(int row, int col){
         //if position row, col is not empty, then return false
         if(_board[row][col]  != 0){
             return false;
@@ -51,12 +52,13 @@ public class Gil{
     }
     
     /*
-    Removes a Queen to the board at position row, col. Also adds 1 from squares that the Queen previously could attack.
-    returns false if no queen in position.
-    returns true if it is.
-    */
-    private boolean whutItDoo(int row, int col) {
+    PRECONDITION: 
+    -that there is queen at _board[row][col]
 
+    SUMARRY:
+    Removes a Queen to the board at position row, col. Also adds 1 from squares that the Queen previously could attack.
+    */
+    private boolean removeQueen(int row, int col) {
         //check if queen is in position row,col, if not return false
         if ( _board[row][col] != 1 ) {
             return false;
@@ -89,6 +91,5 @@ public class Gil{
         //return true when done
         return true;
     }
-
 
 } // end of class Gil
