@@ -1,0 +1,17 @@
+Flying Sullen Actors: Salaj Rijal, Alid Rahman, Faiyaz Rafee
+APCS
+HW 67 -- A Knight Goes on Tour -- Create an algorithm for Knights tour problem
+2022-2-28
+time spent: 6.7 minutes
+
+Pre-condition: Board is empty. 
+
+ALGORITHM:
+1. Choose a starting square for the knight and mark it.
+2. Move knight to any available square (randomly choose).
+3. Mark the square.
+3. Repeat steps 2 and 3 until one of the following:
+ a. Desirable state is reached... return true.
+ b. No more available moves... backtrace and explore other options.
+4. Repeat step 3 until desirable state is reached. If there are no moves left then return false.
+5. HAVE A PARTY WOOOOOOOOO and get knighted by the queen!!!! (most important step).
