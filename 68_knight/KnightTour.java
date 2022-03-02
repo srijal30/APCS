@@ -28,19 +28,14 @@
  * What is the minimum side length to produce a king's tour?
  * How do we change the initial position once we figure out there are no solutions for one?
  * What is the strategically the best starting position.
+ * Will primary base case code ever run?
  
  * Mean execution times for boards of size n*n:
- * n=5   s    across  executions
- * n=6   s    across  executions
- * n=7   s    across  executions
-       *     f . . . c
-       *     . . @ . .
-       *     g . . . b
-       *     . h . a .
-      ******************************************/
+ * n=5  8.2s    across  1 execution
+ * n=6   s    across  1 execution
+ * n=7   s    across  1 execution
 
-      //If made it this far, path did not lead to tour, so back up...
-
+ */
 import java.io.*;
 import java.util.*;
 
@@ -173,15 +168,16 @@ class TourFinder
     //delay(50); //slow it down enough to be followable
 
     //if a tour has been completed, stop animation
-    if ( moves == Math.pow(_sideLength, 2)) System.exit(0);
+    if ( moves == Math.pow(_sideLength, 2) + 1) System.exit(0);
 
     //primary base case: tour completed
-    if ( moves == Math.pow(_sideLength, 2) ) {
+    if ( moves == Math.pow(_sideLength, 2) + 1 ) {
       System.out.println( this ); //refresh screen
       return;
     }
 
     //other base case: stepped off board or onto visited cell
+    //essentially wont continue
     if ( _board[x][y]==-1 || _board[x][y]>0 ) {
       return;
     }
@@ -220,7 +216,6 @@ class TourFinder
       _board[x][y] = 0;
       System.out.println( this ); //refresh screen
       return;
-
     }
   }//end findTour()
 
