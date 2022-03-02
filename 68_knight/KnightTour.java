@@ -174,6 +174,7 @@ class TourFinder
       //delay(1000); //uncomment to slow down enough to view
 
       /******************************************
+       * 
        * Recursively try to "solve" (find a tour) from
        * each of knight's available moves.
        *     . e . d .
