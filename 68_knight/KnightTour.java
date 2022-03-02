@@ -14,16 +14,21 @@
  * $ java KnightTour
  * $ java KnightTour [N]
  *
- * ALGO
+ * ALGO:
+ * Place the knight on any square Try all of the different moves one by one. Each time your try
+ * a different
  *
- * DISCO
- *
+ * DISCO 
+ * 
+ * 
  * QCC
- *
+ * 
+ * 
+ * 
  * Mean execution times for boards of size n*n:
- * n=5   __s    across __ executions
- * n=6   __s    across __ executions
- * n=7   __s    across __ executions
+ * n=5   s    across  executions
+ * n=6   s    across  executions
+ * n=7   s    across  executions
        *     f . . . c
        *     . . @ . .
        *     g . . . b
@@ -59,7 +64,7 @@ public class KnightTour
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //for fixed starting location, use line below:
-    tf.findTour( 2, 2, 1 );
+    tf.findTour( 3, 3, 1 );
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
