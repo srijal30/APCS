@@ -2,7 +2,7 @@
 // APCS pd0
 // HW68 -- recursively probing for a closed cycle
 // 2022-02-28m
-// time spent:  hrs
+// time spent:  2 hours
 
 /***
  * SKELETON
@@ -15,16 +15,20 @@
  * $ java KnightTour [N]
  *
  * ALGO:
- * Place the knight on any square Try all of the different moves one by one. Each time your try
- * a different
+ * Choose any point as a starting position. Call findTour on the current state of the board. Check if either of these conditions arises:
+ * a. a valid knights tour aries b. knight is going to land on an invalid square. If either of thesse cases arises then return.
+ * try all the different moves. If none of those different moves leads to a valid knigths tour, then unmark the latest
+ * position of the knight.
  *
  * DISCO 
+ * Time commands
  * 
  * 
  * QCC
- * 
- * 
- * 
+ * What is the minimum side length to produce a king's tour?
+ * How do we change the initial position once we figure out there are no solutions for one?
+ * What is the strategically the best starting position.
+ 
  * Mean execution times for boards of size n*n:
  * n=5   s    across  executions
  * n=6   s    across  executions
@@ -64,7 +68,7 @@ public class KnightTour
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //for fixed starting location, use line below:
-    tf.findTour( 3, 3, 1 );
+    tf.findTour( 2, 2, 1 );
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -169,11 +173,10 @@ class TourFinder
     //delay(50); //slow it down enough to be followable
 
     //if a tour has been completed, stop animation
-    if ( moves == Math.pow(_sideLength, 2) ) System.exit(0);
+    if ( moves == Math.pow(_sideLength, 2)) System.exit(0);
 
     //primary base case: tour completed
     if ( moves == Math.pow(_sideLength, 2) ) {
-      //???
       System.out.println( this ); //refresh screen
       return;
     }
