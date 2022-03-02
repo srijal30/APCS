@@ -20,7 +20,6 @@ public class Monster {
         health -= damage;
     }
 
-
     public String toString(){
         return "Health: " + Integer.toString(health);
     }
