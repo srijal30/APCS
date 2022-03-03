@@ -1,2 +1,2 @@
 # APCS
-The file where I keep my APCS coursework...
+The folder where my APCS AB coursework resides
