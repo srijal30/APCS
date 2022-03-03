@@ -56,12 +56,17 @@ public class KnightTour
     //clear screen using ANSI control code
     System.out.println( "[2J" );
 
+    int startX = Integer.parseInt( args[1] );
+    int startY = Integer.parseInt( args[2] );
+
+    tf.findTour(startX, startY, 1);
+
     //display board
     //System.out.println( tf );
 
     //FOR ONE STARTING SQUARE:
     //for fixed starting location, use line below:
-    tf.findTour( 2, 2, 1 );
+    //tf.findTour( 2, 2, 1 );
     //for random starting location, use lines below:
     //int startX = (int) (Math.random() * n);
     //int startY = (int) (Math.random() * n);
