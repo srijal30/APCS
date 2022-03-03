@@ -50,6 +50,11 @@ Possible alternative?
 2. Turn in the direction of the leftmost path 
 3. But missing a base case
 
+
+
+
+
+
 MAZES:
 "@" - Player
 "#" - Path
