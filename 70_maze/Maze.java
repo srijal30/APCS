@@ -1,8 +1,8 @@
-// Clyde Sinclair
-// APCS pd0
-// HW69 -- maze solving (blind, depth-first)
-// 2022-03-03r
-// time spent:  hrs
+// Luminosity: Salaj Rijal, Kevin Li
+// APCS pd8
+// HW 70 -- Maze Solving -- Solve a Maze using DFS
+// 2022-3-7
+// time spent: 2 hrs
 
 /***
  * SKEELTON for
@@ -15,18 +15,28 @@
  * (mazefile is ASCII representation of a maze, using symbols below)
  *
  * ALGORITHM for finding exit from starting position:
+ * 
+ * Check if the next move will lead to an exit. If it does, congratulations the maze is solved! If not, then check if the 
+ * next move lands on a valid path. If not, then stop exploring that path. If it is valid, then go on that path. Once on the next path, check if going up
+ * will lead to an exit. If not, check if going right will lead to an exit. If not, then check if going left will lead to an exit. If not, then check if going
+ * down will lead to an exit. If none of these directions work, then the path you are currently on is invalid, so mark it down and go back one step. Rinse and Repeat.  
  *  
  * 
  * DISCO
  * 
+ * 1. A precondition is that there is a buffer for the mazes
+ * 2. Check if next move is exit first and then check if on path.
+ * 
  * QCC
+ * 
+ * 1. What is the point of _solved? 
+ * 2. How can we improve our algorithm?
  * 
  ***/
 
 //enable file I/O
 import java.io.*;
 import java.util.*;
-
 
 class MazeSolver
 {
@@ -48,7 +58,7 @@ class MazeSolver
   {
     // init 2D array to represent maze
     // (80x25 is default terminal window size)
-    _maze = new char[100][100];
+    _maze = new char[80][25];
     h = 0;
     w = 0;
 
@@ -129,30 +139,21 @@ class MazeSolver
   {
     delay( FRAME_DELAY ); //slow it down enough to be followable
     
-    //check if on path
-    if( ! onPath(x, y) ){
-      return;
-    }
-    
-    //check if _solved becomes true
+    //check if solved
     if( _maze[x][y] == EXIT ) {
-      //do we need to add code to move player here
-      delay(1000);
-      System.out.println("SOLVED!");
-      _solved = true;
-      return;
-    }
-     
+        //do we need to add code to move player here
+        _solved = true;
+    } 
+    
     //deactivate if solved
     if ( _solved ) {
-      delay(1000);
       System.out.println("MAZE SOLVED!");
       System.exit(0);
     }
 
-    //checks if invalid object
-    if ( _maze[x][y] ==  WALL || _maze[x][y] == VISITED_PATH || _maze[x][y] == HERO) {
-      return;
+    //check if not on a path
+    if( !onPath(x, y) ) {
+        return;
     }
     
     //otherwise, recursively solve maze from next pos over,
@@ -160,7 +161,6 @@ class MazeSolver
     else {
       //set current tile to hero tile
       _maze[x][y] = HERO;
-      
       System.out.println( this ); //refresh screen
 
       solve(x - 1, y); //up
@@ -168,9 +168,9 @@ class MazeSolver
       solve(x, y + 1); //right
       solve(x + 1, y); //down
 
-      System.out.println( this ); //refresh screen
-      //set period
+      //if none of the above moves leads to a solve then mark paths
       _maze[x][y] = VISITED_PATH;
+      System.out.println( this ); //refresh screen
     }
     
   }
@@ -210,13 +210,13 @@ public class Maze
     //ms.solve( 0, 0 );
 
     //drop our hero into maze at random location on path
-    int startX = (int) ( Math.random() * ms.h );
-    int startY = (int) ( Math.random() * ms.w );
+    int startX = (int) ( Math.random() * ms.w );
+    int startY = (int) ( Math.random() * ms.h );
 
     //continously loop until valid position found
     while( ! ms.onPath(startX, startY) ){
-      startX = (int) ( Math.random() * ms.h );
-      startY = (int) ( Math.random() * ms.w );
+      startX = (int) ( Math.random() * ms.w );
+      startY = (int) ( Math.random() * ms.h );
     }
 
     ms.solve( startX, startY );
