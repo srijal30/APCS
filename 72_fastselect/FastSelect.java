@@ -89,14 +89,13 @@ public class FastSelect {
     }//end mysterion
   
     public static int find( int arr[], int y) {
+          y--;
           int start = 0; //start index
           int end = arr.length-1; //end index
           int pivot = (start+end)/2; //midpoint
-	  System.out.println(start + " and pivot: " + pivot + " and end:" + end);
           pivot = partition( arr, start, end, pivot); //initial pivot
 
           while( pivot != y ){
-          	System.out.println("in loop " + start + " and pivot: " + pivot + " and end:" + end);
           	if( pivot < y ){
             		start = pivot;
             		pivot = start + 1;
@@ -113,9 +112,9 @@ public class FastSelect {
   
       public static void main(String[] args) {
         int[] arr = new int[]{ 1, 2, 3, 4, 5, 6, 7};
-        System.out.println( find(arr, 6) );
+        System.out.println( find(arr, 7) );
         int[] arr1 = new int[]{ 9823, 47, 326, 920, 7436, 234, 69};
-        System.out.println( find(arr1, 6) );
+        System.out.println( find(arr1, 7) );
       }
   
   } // end of class FastSelect
