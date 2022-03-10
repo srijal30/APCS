@@ -1,4 +1,4 @@
-// Computer Attackers: Salaj Rijal, Alif Rahman
+// Froghat: Salaj Rijal, Alif Rahman, Kevin Cheng
 // APCS pd8
 // HW72 -- So So Fast
 // 2022-03-08
