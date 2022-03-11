@@ -95,13 +95,13 @@ public class QuickSort
     sort( d, pointBlank+1, end);    
     return d;
   }
-
+  
   //main method for testing
   public static void main( String[] args )
   {
-
-
+    
     /*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y) 
+
     //get-it-up-and-running, static test case:
     int[] arr1 = {7,1,5,12,3};
     System.out.println("\narr1 init'd to: " );
@@ -112,27 +112,28 @@ public class QuickSort
     qsort( arr1 );
     System.out.println("arr1 after qsort: " );
     printArr(arr1);
-
+    
     System.out.println( "Time: " + (System.currentTimeMillis() - start) );
-
+    
     // randomly-generated arrays of n distinct vals
-    int[] arrN = new int[10];
+    int[] arrN = new int[30];
     for( int i = 0; i < arrN.length; i++ )
     arrN[i] = i;
-
+    
     System.out.println("\narrN init'd to: " );
     printArr(arrN);
-
+    
     shuffle(arrN);
     System.out.println("arrN post-shuffle: " );
     printArr(arrN);
-
+    
     qsort( arrN );
     System.out.println("arrN after sort: " );
     printArr(arrN);
-
-
-
+    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    
+    
     //get-it-up-and-running, static test case w/ dupes:
     int[] arr2 = {7, 17 ,8,12, 6, 4354, 54456 ,545, 2232, 5435, 1343, 121, 32423, 23423};
     System.out.println("\narr2 init'd to: " );
@@ -143,24 +144,23 @@ public class QuickSort
     System.out.println("arr2 after qsort: " );
     printArr(arr2);
 
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     // arrays of randomly generated ints
-    int[] arrMatey = new int[999999999];
+    int[] arrMatey = new int[30];
     for( int i = 0; i < arrMatey.length; i++ )
-    arrMatey[i] = (int)( 1000 * Math.random() );
-
-
+    arrMatey[i] = (int)( 10 * Math.random() );
+    
+    
     System.out.println("\narrMatey init'd to: " );
-    //printArr(arrMatey);
-
+    printArr(arrMatey);
+    
     double start = System.currentTimeMillis();
     //shuffle(arrMatey);
     qsort( arrMatey );
     System.out.println("arrMatey post-shuffle: " + ( System.currentTimeMillis() - start ) );
-    //printArr(arrMatey);
-
-
-
+    printArr(arrMatey);
+    
+    
+    
     /*~~~~s~l~i~d~e~~~m~e~~~d~o~w~n~~~~~~~~~~~~~~~~~~~~ (C-k, C-k, C-y)
 
     qsort( arrMatey );

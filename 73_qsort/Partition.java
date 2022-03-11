@@ -93,7 +93,7 @@ public class Partition
 
     //put everything less than pivot to the left
     for( int i = loPos; i < hiPos; i++ ) {
-      if ( arr[i] <= v) {
+      if ( arr[i] < v) {
         swap( i, s, arr );
         s++;}
     }
