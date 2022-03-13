@@ -16,4 +16,12 @@ public class LLNode {
         return connection;
     }
 
+    public void setCar( String value ){
+        this.value = value;
+    }
+
+    public void setCdr( LLNode connection ){
+        this.connection = connection;
+    }
+
 }
