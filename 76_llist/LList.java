@@ -1,3 +1,20 @@
+/*
+Froghats: Salaj Rijal, Kevin Cheng, Alif RAHMAN
+HW 76 -- WE Got a little Ol Convoy -- Plan and implement LList
+APCS
+2022-3-15
+time spent: 1 hour
+
+DISCO:
+- add() is O(1)
+- we should not use a pointer for the latest node
+
+QCC:
+- does having 2 instance variables take too much memory?
+
+*/
+
+
 public class LList implements List {
 
     //lastest pointer
