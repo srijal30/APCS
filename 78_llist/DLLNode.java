@@ -19,20 +19,20 @@ ALGO REM:
 
 
 /***
- * class LLNode
+ * class DLLNode
  * Implements a node, for use in lists and other container classes.
  * Stores its data as a String
  **/
 
-public class LLNode
+public class DLLNode
 {
   //instance vars
   private String _cargo;
-  private LLNode _nextNode;
-  private LLNode _prevNode;
+  private DLLNode _nextNode;
+  private DLLNode _prevNode;
 
   // constructor
-  public LLNode( String value, LLNode next, LLNode prev )
+  public DLLNode( String value, DLLNode next, DLLNode prev )
   {
     _cargo = value;
     _nextNode = next;
@@ -45,12 +45,12 @@ public class LLNode
     return _cargo;
   }
 
-  public LLNode getNext()
+  public DLLNode getNext()
   {
     return _nextNode;
   }
 
-  public LLNode getPrev()
+  public DLLNode getPrev()
   {
     return _prevNode;
   }
@@ -65,15 +65,15 @@ public class LLNode
     return foo;
   }
 
-  public LLNode setNext( LLNode newNext )
+  public DLLNode setNext( DLLNode newNext )
   {
-    LLNode foo = getNext();
+    DLLNode foo = getNext();
     _nextNode = newNext;
     return foo;
   }
 
-  public LLNode setPrev( LLNode newPrev ){
-    LLNode foo = getPrev();
+  public DLLNode setPrev( DLLNode newPrev ){
+    DLLNode foo = getPrev();
     _prevNode = newPrev;
     return foo;
   }
@@ -86,4 +86,4 @@ public class LLNode
     return _cargo;
   }
 
-}//end class LLNode
+}//end class DLLNode
