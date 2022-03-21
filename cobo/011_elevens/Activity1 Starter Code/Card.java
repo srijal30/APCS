@@ -72,10 +72,10 @@ public class Card {
 		return (this.suit.equals(otherCard.suit) && this.rank.equals(otherCard.rank) && this.pointValue == otherCard.pointValue);
 	}
 
-	/**
+	/*
 	 * Converts the rank, suit, and point value into a string in the format
 	 *     "[Rank] of [Suit] (point value = [PointValue])".
-	 * This provides a useful way of printing the contents
+	 d* This provides a useful way of printing the contents
 	 * of a <code>Deck</code> in an easily readable format or performing
 	 * other similar functions.
 	 *
@@ -84,6 +84,6 @@ public class Card {
 	 */
 	@Override
 	public String toString() {
-		return rank + " of " + suit + " (point vlue = " + pointValue + ")";
+		return rank + " of " + suit + " (point value = " + pointValue + ")";
 	}
 }
