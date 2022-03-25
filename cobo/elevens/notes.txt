@@ -1,0 +1,20 @@
+Questions for Activity 2:
+
+1. Explain in your own words the relationships between a deck and a card
+
+    A card is an array list that contains ranks, suits and pointValues. A deck contains cards.
+
+2. Consider the deck initialized with the statements below. How many cards does the deck contain?
+
+    Strings[] ranks = {"jack", "queen", "king"};
+    Strings[] suits = {"blue", "red"};
+    int[] pointValues = {11, 12, 12};
+    Deck d = new Deck(ranks, suits, pointValues);
+
+    It will result in an error since there are not enought elements in suits so it would results in an IndexOutOfBound error.
+
+3. Make a Deck for Twenty-One (completed) 
+
+4. Does the order of elements of the ranks, suits, and pointValues arrays matter?
+
+    Yes because otherwise it would make impossible cards such as a king card with a pointValue of 3
