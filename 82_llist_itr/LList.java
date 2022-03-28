@@ -5,6 +5,11 @@
  * (...because modifications were made to local List interface.)
  **/
 
+//FROGHATS: Salaj Rijal, Alif Cheng, Kevin Rahman
+//APCS
+//HW 82 -- Roll Your Own Iterator -- make llist iterable
+
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -153,7 +158,7 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
 
 
   //return an Iterator over this list
-  public MyIterator<T> iterator()
+  public MyIterator iterator()
   {
     return new MyIterator();
   }
@@ -210,18 +215,20 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     return retVal;
   }
 
-
   public T removeLast()
   {
     T retVal = getLast();
-    if ( size() == 1 ) {      /* YOUR CODE HERE */
-
+    if ( size() == 1 ) {
+      _head = _tail = null;
+    }
+    else {
+      _tail = _tail.getPrev();
+      _tail.setNext( null );
     }
     _size--;
     return retVal;
   }
   //--------------^  Helper methods  ^--------------
-
 
   // override inherited toString
   public String toString()
@@ -237,23 +244,24 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
   }
 
 
-
   /***
    * inner class MyIterator
    * Adheres to specifications given by Iterator interface.
    * Uses dummy node to facilitate iterability over LList.
    **/
-  private class MyIterator implements Iterator<T>
-  {
+  private class MyIterator implements Iterator<T> {
+  
+  
     private DLLNode<T> _dummy;   // dummy node to tracking pos
     private boolean _okToRemove; // flag indicates next() was called
 
     //constructor
     public MyIterator()
     {
-      _dummy = _head;
+      _dummy = null;
       _okToRemove = false;
     }
+
 
     //-----------------------------------------------------------
     //--------------v  Iterator interface methods  v-------------
@@ -267,11 +275,20 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     //return next element in this iteration
     public T next() 
     {
-      if( _dummy == _tail ) throw NoSuchElementException;
+      if( !hasNext() ) throw new NoSuchElementException();
 
-      _dummy = _dummy.getNext();
       _okToRemove = true;
-      return _dummy.getPrev().cargo();
+      
+      //if null then set to head
+      if( _dummy == null ){
+        _dummy = _head;
+      }
+      //else go to next
+      else{
+        _dummy = _dummy.getNext();
+      }
+      //return
+      return _dummy.getCargo();
     }
 
 
@@ -280,7 +297,23 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     //               (...so that hasNext() will not crash)
     public void remove()
     {
-            /* YOUR CODE HERE */
+      //exception
+      if( !_okToRemove ) throw new IllegalStateException();
+
+      //edge cases
+      if ( _dummy == _head ) {
+        _dummy = null;
+        removeFirst();
+      }
+
+      if ( !hasNext() ) {
+        _dummy = _dummy.getPrev();
+        removeLast();
+      }
+      
+      _dummy = _dummy.getPrev();      
+      _dummy.getNext().getNext().setPrev(_dummy);
+      _dummy.setNext( _dummy.getNext().getNext() );
     }
     //--------------^  Iterator interface methods  ^-------------
     //-----------------------------------------------------------
@@ -291,49 +324,49 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    LList james = new LList();
-
+    LList<String> james = new LList<String>();
+    
     System.out.println("initially: " );
     System.out.println( james + "\tsize: " + james.size() );
-
+    
     james.add("beat");
     System.out.println( james + "\tsize: " + james.size() );
-
+    
     james.add("a");
     System.out.println( james + "\tsize: " + james.size() );
-
+    
     james.add("need");
     System.out.println( james + "\tsize: " + james.size() );
-
+    
     james.add("I");
     System.out.println( james + "\tsize: " + james.size() );
-
+    
     System.out.println( "2nd item is: " + james.get(1) );
-
+    
     System.out.println( "...and now 2nd item is: " + james.set(1,"got") );
     System.out.println( james + "\tsize: " + james.size() );
-
+    
     james.add(0,"whut");
     System.out.println( "...after add(0,whut): " );
     System.out.println( james + "\tsize: " + james.size() );
-
+    
     james.add(4,"phat");
     System.out.println( "...after add(4,phat): " );
     System.out.println( james + "\tsize: " + james.size() );
-
+    
     System.out.println( "...after remove last: "
                         + james.remove( james._size-1) );
-    System.out.println( james + "\tsize: " + james.size() );
-
-    System.out.println( "...after remove(0): " + james.remove(0) );
-    System.out.println( james + "\tsize: " + james.size() );
-
-    System.out.println( "...after remove(0): " + james.remove(0) );
-    System.out.println( james + "\tsize: " + james.size() );
-
-    System.out.println( "...after remove(0): " + james.remove(0) );
-    System.out.println( james + "\tsize: " + james.size() );
+                        System.out.println( james + "\tsize: " + james.size() );
+                        
+                        System.out.println( "...after remove(0): " + james.remove(0) );
+                        System.out.println( james + "\tsize: " + james.size() );
+                        
+                        System.out.println( "...after remove(0): " + james.remove(0) );
+                        System.out.println( james + "\tsize: " + james.size() );
+                        
+                        System.out.println( "...after remove(0): " + james.remove(0) );
+                        System.out.println( james + "\tsize: " + james.size() );
+                        /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }//end main()
 
