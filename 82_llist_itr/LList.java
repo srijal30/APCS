@@ -8,6 +8,17 @@
 //FROGHATS: Salaj Rijal, Alif Cheng, Kevin Rahman
 //APCS
 //HW 82 -- Roll Your Own Iterator -- make llist iterable
+//2022-03-27
+//time spent: 1 hour
+
+//DISCO
+//make _dummy = null initially
+
+//QCC
+//why do we need so many edge cases? is there a way to do this
+//without so many edge cases?
+
+//why is the documentation weird
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -228,6 +239,7 @@ public class LList<T> implements List<T> //Q: Why no "implements Iterable" ?
     _size--;
     return retVal;
   }
+  
   //--------------^  Helper methods  ^--------------
 
   // override inherited toString
