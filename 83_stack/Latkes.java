@@ -7,8 +7,11 @@
 
 /***
     DISCO
+    - t4em work is important as well as
 
     QCC
+    - how is this useful to us?
+    - how can we improve?
 
  **/
 
@@ -24,59 +27,52 @@ public class Latkes
   {
 	  _stack = new String[initCapacity];
 	  _stackSize = 0;
-  }// O(?)
+  }// O(1)
 
 
   //means of insertion
   public void push( String s )
   {
-	  if( isFull() ) throw new Exception();
-	  _stack[_stackSize] = s;
-    */
+    //if full
+	  if( isFull() ) {
+      System.out.println("stack full");
+      return;
+    }
+    //else
+    _stack[_stackSize] = s;
 	  _stackSize++;
-  }// O(?)
+  }// O(1)
 
 
   //means of removal
-  public String pop( )
+  public String pop()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    //if empty
+    if( isEmpty() ) return null;
+    //else
+    _stackSize--;
+    return _stack[_stackSize];
+  }// O(1)
 
 
   //chk for emptiness
   public boolean isEmpty()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    return _stackSize < 1;
+  }// O(1)
 
 
   //chk for fullness
   public boolean isFull()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
+    return _stack.length == _stackSize;
   }// O(?)
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+    
 
     Latkes tastyStack = new Latkes(10);
 
@@ -120,7 +116,6 @@ public class Latkes
 
     //stack empty by now; SOP(null)
     System.out.println( tastyStack.pop() );
-      ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
   }//end main()
 
