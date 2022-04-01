@@ -7,8 +7,8 @@
  *   2. ...
  *   5. Profit!
  *
- * STACK OF CHOICE: LLStack by ____
- * b/c ...
+ * STACK OF CHOICE: LLStack by FROGHATS
+ * b/c LLStack is much nicer, also we think our implementation is correct
  **/
 
 public class Scheme
