@@ -70,9 +70,14 @@ public class Scheme
       int current = Integer.parseInt( numbers.pop() );
       
       //calculate depending on operation
-      if( op == 1) result+= current;
-      if( op == 2) result-= current;
-      if( op == 3) result*= current;
+      switch (op) {
+        case 1: result+= current;
+                break;
+        case 2: result-= current;
+                break;
+        case 3: result*= current;
+                break;
+      }
     }
   
     //get rid of the (
