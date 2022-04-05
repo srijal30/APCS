@@ -30,7 +30,7 @@ end user it seems to be random
 
 QCC:
 -Where should we put the sample method?
--Since we put sample() in peekFront, does that make our peekfront O(n)?
+-Since we put sample() in enqueue, does that make our sample O(n)?
 
 */
 
@@ -60,7 +60,7 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
       _end = _end.getNext();
     }
     _size++;
-
+    sample();
   }//O(1)
 
 
@@ -73,27 +73,32 @@ public class RQueue<SWASHBUCKLE> implements Queue<SWASHBUCKLE>
     _front = _front.getNext();
     _size--;
     return tmp;
+
   }//O(1)
 
 
   public SWASHBUCKLE peekFront()
   {
     return _front.getCargo();
-  }//O(n)
+  }//O(1)
 
 
   /***
    * void sample() -- a means of "shuffling" the queue
    * Algo:
    * 1. generate a random number from 0-size and call it random
-   * 2. dequeue and enqueue the result from dequeue random number of times
+   * 2. dequeue and enqueue (but wihtout enquueeu method) the result of dequeue random number of times
    *   
    **/
 
   public void sample ()
   {
     int random = (int) (Math.random() * _size);
-    for (int i = 0; i <= random; i++) enqueue( dequeue() );
+    for (int i = 0; i < random; i++){
+      SWASHBUCKLE tmp = dequeue();
+      _end.setNext( new LLNode<SWASHBUCKLE>(tmp, null) );
+      _end = _end.getNext();
+    };
 
   }//O(n)
 
