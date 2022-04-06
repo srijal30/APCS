@@ -1,21 +1,26 @@
 public class Player{
 
     private String name;
-    private double ptsPerGame;
+    private String ptsPerGame;
     
 
-    public Player( String name, double pts){
+    public Player( String name, String pts){
         this.name = name;
         ptsPerGame = pts; 
     }
 
     public String toString(){
-        return "Name: " + name + "\nPPG: " + Double.toString(ptsPerGame);
+        return "Name: " + name + "\nPPG: " + ptsPerGame;
+    }
+
+    public double points(){
+        return Double.parseDouble( ptsPerGame );
+
     }
 
     public int compareTo(Player x) {
-        if (this.ptsPerGame > x.ptsPerGame) return 1;
-        else if ( x.ptsPerGame > this.ptsPerGame ) return -1;
+        if (this.points() > x.points()) return 1;
+        else if ( x.points() > this.points() ) return -1;
         return 0;
     }
 
