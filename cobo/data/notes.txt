@@ -1,17 +1,17 @@
-Team Phantom Tollbooth :: Clyde Sinclair, Fierce Dragon
+Team Flying Sullen Actors: Faiyaz Rafee, Salaj Rijal, Alif Rahman
 APCS
-LAB08 --
+LAB08 -- America's Next Top Data Scientist
 2022-04-05
-time spent: <elapsed time in hours, rounded to nearest tenth>
+time spent: 2 hrs
 
 
 DISCO
-
+- 
 
 QCC
 
 
-<TNPG>'s CSV FLOW:
+Flying Sullen Actors's CSV FLOW:
 <insert your description of your tools and workflow in creating, editing CSV files>
 
 
