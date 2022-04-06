@@ -13,7 +13,8 @@ public class Welcome03_List {
              "station/station_id", "station/state",
              "station/latitude", "station/longitude");
       System.out.println("Total stations: " + allstns.size());
-      
+
+      /*      
       Scanner sc = new Scanner(System.in);
       System.out.println("Enter a state abbreviation: ");
       String state = sc.next();
@@ -22,6 +23,18 @@ public class Welcome03_List {
          if (ws.isLocatedInState(state)) {
             System.out.println("  " + ws.getId() + ": " + ws.getName());
          }
+      }*/
+      
+      WeatherStation currentSouth = allstns.get(0);
+
+      for( WeatherStation stn: allstns ){
+         
+         if( currentSouth.getLat() <= stn.getLat() ) continue;
+	 else currentSouth = stn;
+      
       }
+	
+      System.out.println( "Furthest South: " + currentSouth.getName() );
+
    }
 }

@@ -2,18 +2,28 @@ Team Flying Sullen Actors: Faiyaz Rafee, Salaj Rijal, Alif Rahman
 APCS
 LAB08 -- America's Next Top Data Scientist
 2022-04-05
-time spent: 2 hrs
+time spent: 3 hrs (1 hour spent trying to get -classpath to work :( it doesnt work on windows computer)
 
 
 DISCO
-- 
+- There are alot of useful datasets on the provided websites.  
+- First you have to connect DataSource to a url.
+- To use DataSource.fetchlist(), you need the first paramter to be the class name you want to construct objects from and the following parameters are the parameters for the object constructor. You have to specify where to get the data for the constructor.
 
 QCC
+- Why does javac -classpath not work in our home computers? So far we only got it to work on the school computers.
 
 
 Flying Sullen Actors's CSV FLOW:
 <insert your description of your tools and workflow in creating, editing CSV files>
+-We will use DataSource.fetchlist() which will return an ArrayList of a specified type. This helps convert the information from the .csv into objects that we can readily use.
+-We have to connect DataSource to a link where it can "fetch" data from. In our kase we are using kaggle.com. 
+
 
 
 TRUBZ
 <this lab involves using tools that are likely to introduce hiccups; log any troubleshooting issues here>
+- javac -classpath command does not work on home computer. We had to ssh into school computer.
+- Location of the sinbad.jar file matters significantly. Also you have to use -rf to add it to the git repo, cuz .gitignore is set up to ignore it.
+
+
