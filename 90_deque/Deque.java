@@ -1,20 +1,19 @@
 public interface Deque<T> {
     
-    public T dequeueLast();
+    public T removeLast();
 
-    public T dequeueFirst();
+    public T removeFirst();
 
-    public void enqueueFirst( T x);
+    public void addFirst( T x);
 
-    public void enqueueLast( T x);
+    public void addLast( T x);
 
-    public T peekTop();
+    public T peekFirst();
 
-    public T peekBottom();
+    public T peekLast();
 
     public int size();
 
     public boolean isEmpty();
-
 
 }
