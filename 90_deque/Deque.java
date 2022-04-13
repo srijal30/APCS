@@ -1,5 +1,14 @@
+/*
+ * TNPG: Froghats 
+Roster: Alif Rahman, Salaj Rijal, Kevin Cheng
+APCS
+HW90 -- Swabbing the Deque -- Implementing our own Deque class
+2022-04-12
+time spent: .5 hours
+*/
+
 public interface Deque<T> {
-    
+   	
     public T removeLast();
 
     public T removeFirst();
@@ -16,4 +25,8 @@ public interface Deque<T> {
 
     public boolean isEmpty();
 
+    /*
+     * public T pollFirst();
+     * public T pollLast();
+     */
 }

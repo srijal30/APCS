@@ -1,3 +1,5 @@
+import java.util.*;
+
 //TNPG: Froghats 
 //Roster: Alif Rahman, Salaj Rijal, Kevin Cheng
 //APCS
@@ -5,19 +7,21 @@
 //2022-04-12
 //time spent: .5 hours
 
-import java.util.LinkedList;
-
 public class Deck<T> implements Deque<T>{
 
     private LinkedList<T> wrapped = new LinkedList<T>();
 
     //remove the first element
     public T removeFirst(){
+	if ( isEmpty() )
+		throw new NoSuchElementException();
         return wrapped.removeFirst();
     }
 
     //remove the last element
     public T removeLast(){
+	if ( isEmpty() )
+		throw new NoSuchElementException();
         return wrapped.removeLast();
     }
 
@@ -52,49 +56,22 @@ public class Deck<T> implements Deque<T>{
         return size() <= 0;
     }
 
-    //test cases
-    public static void main(String[] args) {
-        
-        Deck<String> deck = new Deck<String>();
+    public T pollFirst() {
+	    try   {
+		return removeFirst();
+	      }
+	    catch ( Exception e )	 {
+		    return null;
+ }
+	     }
 
-        deck.addFirst("a");
-        deck.addFirst("b");
-        deck.addFirst("c");
-
-        deck.addLast("x");
-        deck.addLast("y");
-        deck.addLast("z"); 
-
-        //remove from end
-        System.out.println("Remove from end: ");
-        while ( ! deck.isEmpty() ) System.out.print( deck.removeLast() + " " );
-        
-        deck.addFirst("a");
-        deck.addFirst("b");
-        deck.addFirst("c");
-
-        deck.addLast("x");
-        deck.addLast("y");
-        deck.addLast("z"); 
-
-        //remove from beginning
-        System.out.println("\nRemove from beginning: ");
-        while ( ! deck.isEmpty() ) System.out.print( deck.removeFirst() + " " );
-
-        //shuffle the order up
-        deck.addFirst("a");
-        deck.addLast("x");
-
-        deck.addFirst("b");
-        deck.addLast("y");
-        
-        deck.addFirst("c");
-        deck.addLast("z"); 
-
-        //remove from beginning
-        System.out.println("\nRemove from beginning w/ a twist: ");
-        while ( ! deck.isEmpty() ) System.out.print( deck.removeFirst() + " " );
-
-    }
+	public T pollLast() {
+	    try {
+		return removeLast();
+		    }
+	    catch ( Exception e ) {
+		    return null;
+	  }
+	   }
 
 }
