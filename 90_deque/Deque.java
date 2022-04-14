@@ -1,11 +1,20 @@
+//TNPG: Froghats 
+//Roster: Alif Rahman, Salaj Rijal, Kevin Cheng
+//APCS
+//HW91 -- Deque the Halls
+//2022-04-13
+//time spent: 1 hour
+
 /*
- * TNPG: Froghats 
-Roster: Alif Rahman, Salaj Rijal, Kevin Cheng
-APCS
-HW90 -- Swabbing the Deque -- Implementing our own Deque class
-2022-04-12
-time spent: .5 hours
+DISCO:
+- Turns out LinkedList already implements Deque, so all we did was "pass-thru" the necessary LinkedList methods.
+
+QCC:
+- Are we doing this right?
+- What other functionality should we add to our Deque?
+- What are some good names for the interface methods? Should they be the same as stated in the API?
 */
+
 
 public interface Deque<T> {
    	
@@ -13,9 +22,9 @@ public interface Deque<T> {
 
     public T removeFirst();
 
-    public void addFirst( T x);
+    public void addFirst( T x );
 
-    public void addLast( T x);
+    public void addLast( T x );
 
     public T peekFirst();
 
@@ -25,8 +34,9 @@ public interface Deque<T> {
 
     public boolean isEmpty();
 
+    public T pollFirst();
+
+    public T pollLast();
     /*
-     * public T pollFirst();
-     * public T pollLast();
-     */
+    */
 }
