@@ -1,11 +1,22 @@
-import java.util.*;
-
 //TNPG: Froghats 
 //Roster: Alif Rahman, Salaj Rijal, Kevin Cheng
 //APCS
-//HW90 -- Swabbing the Deque
-//2022-04-12
-//time spent: .5 hours
+//HW91 -- Deque the Halls
+//2022-04-13
+//time spent: 1 hour
+
+/*
+DISCO:
+- Turns out LinkedList already implements Deque, so all we did was "pass-thru" the necessary LinkedList methods.
+
+QCC:
+- Are we doing this right?
+- What other functionality should we add to our Deque?
+- What are some good names for the interface methods? Should they be the same as stated in the API?
+*/
+
+
+import java.util.*;
 
 public class Deck<T> implements Deque<T>{
 
@@ -56,15 +67,17 @@ public class Deck<T> implements Deque<T>{
         return size() <= 0;
     }
 
+    //remove first but return null instead of error when empty
     public T pollFirst() {
-	    try   {
-		return removeFirst();
-	      }
+        try   {
+            return removeFirst();
+        }
 	    catch ( Exception e )	 {
-		    return null;
- }
-	     }
-
+            return null;
+        }
+    }
+    
+    //remove first but return null instead of error when empty
 	public T pollLast() {
 	    try {
 		return removeLast();

@@ -1,14 +1,21 @@
+//TNPG: Froghats 
+//Roster: Alif Rahman, Salaj Rijal, Kevin Cheng
+//APCS
+//HW91 -- Deque the Halls
+//2022-04-13
+//time spent: 1 hour
+
 /*
-TNPG: Froghats 
-Roster: Alif Rahman, Salaj Rijal, Kevin Cheng
-APCS
-HW90 -- Swabbing the Deque -- Implementing our own Deque class
-2022-04-12
-time spent: .5 hours
+DISCO:
+- Turns out LinkedList already implements Deque, so all we did was "pass-thru" the necessary LinkedList methods.
+
+QCC:
+- Are we doing this right?
+- What other functionality should we add to our Deque?
+- What are some good names for the interface methods? Should they be the same as stated in the API?
 */
 
-
-public class Driver {
+public class MRKPirateBae {
     public static void main(String[] args) {
         
         Deck<String> deck = new Deck<String>();
@@ -50,8 +57,11 @@ public class Driver {
         //remove from beginning
         System.out.println("\nRemove from beginning w/ a twist: ");
         while ( ! deck.isEmpty() ) System.out.print( deck.removeFirst() + " " );
-    	//should give nulls
-	System.out.println( deck.pollFirst() );
-	System.out.println( deck.pollLast() );
+        
+        //should give nulls
+    	System.out.println("Poll test on empty deque:");
+	    System.out.println( deck.pollFirst() );
+    	System.out.println("Remove test on empty deque (should return error)");
+	    System.out.println( deck.removeLast() );
     }
 }
