@@ -12,3 +12,8 @@ of JFrame Objects?
 
 Does the GUI take care of setting up the first gameCelebrity?
 -no it doesnt, this is handled in the play method
+
+
+Notes:
+
+THE GUI was really hard to implement... documentation unclear. Had to do a lot of research online to understand.
