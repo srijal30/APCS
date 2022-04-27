@@ -42,7 +42,10 @@ public class CelebrityFrame extends JFrame
 	{
 		//The first line of any subclass should ALWAYS be a correct call to the super constructor.
 		super();
-		controller = controllerRef;
+		this.controller = controllerRef;
+		this.panelCards = new JPanel(new CardLayout());
+		this.gamePanel = new CelebrityPanel(controller);
+		this.startPanel = new StartPanel(controller);
 		setupFrame();
 	}
 	
@@ -51,26 +54,20 @@ public class CelebrityFrame extends JFrame
 	 */
 	private void setupFrame() //<--- what is the point of this
 	{
-		//create the panels
-		gamePanel = new CelebrityPanel(controller);
-		startPanel = new StartPanel(controller);
-		panelCards = new JPanel();
-
-		//create the layout
-		cl = new CardLayout();
-		panelCards.setLayout(cl);
-
-		//add the cards to the layout
-		panelCards.add(gamePanel, "GAME" );
-		panelCards.add(startPanel, "START" );
- 
-		cl.show( panelCards, "START");
+		panelCards.add(gamePanel, "GAME");
+		panelCards.add(startPanel, "START"); 
+		this.setSize(800,800);
+		this.setTitle("Celebrity Game");
+		this.add(panelCards);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
 		
-		//frame stuff
-		add(panelCards);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		pack();
-		setVisible(true);
+		replaceScreen("START");
+		
+		//Must be the last line of the configuration segment to allow the GUI to be displayed. 
+		//If not set as true the window will not display and the app will terminate.
+		this.setVisible(true); 
+		
 	}
 	
 	/**
@@ -79,16 +76,13 @@ public class CelebrityFrame extends JFrame
 	 */
 	public void replaceScreen(String screen)
 	{
-		if( screen.equals("START") ){
-			cl.show( panelCards, "START");
+		if(screen.equals("GAME"))
+		{
+			//If the selected screen is the game, sends the first clue to the screen.
+			gamePanel.addClue(controller.sendClue());
 		}
-		else if (screen.equals("GAME") ){
-			cl.show( panelCards, "START");
-		}
-		else{
-			System.out.println("Something went wrong");
-		}
-		
+		//Sets the chosen JPanel subclass as the active class
+		((CardLayout)panelCards.getLayout()).show(panelCards , screen);
 	}
 	
 }

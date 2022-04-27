@@ -3,12 +3,12 @@
 
 QCC:
 
-how do we go to the next celebrity?
-
 how exactly do the GUI and CelebrityGame interact?
+
 
 Panel vs Frame what is the difference? Also what are Cards? Basically what is the structure 
 of JFrame Objects?
 
+
 Does the GUI take care of setting up the first gameCelebrity?
-=no it doesnt, this is handled in the play method
+-no it doesnt, this is handled in the play method

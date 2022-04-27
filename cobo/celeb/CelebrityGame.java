@@ -40,10 +40,10 @@ public class CelebrityGame
 	{
 		//reinitialize (start a new game)
 		celebGameList = new ArrayList<Celebrity>(); 
-		//gameWindow = new CelebrityFrame(this);
+		gameWindow = new CelebrityFrame(this);
 		
 		//open GUI frame that allows user to input celebs
-		//gameWindow.replaceScreen("START");
+		gameWindow.replaceScreen("START");
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class CelebrityGame
 		if (celebGameList != null && celebGameList.size() > 0  ) 
 		{ 
 			this.gameCelebrity = celebGameList.get(0); 
-			//gameWindow.replaceScreen("GAME"); 
+			gameWindow.replaceScreen("GAME"); 
 		}
 		//(if it is empty i guess than print some message) <-- shouldnt happen tho
 		else{

@@ -80,17 +80,19 @@ public class CelebrityRunner
 
 		System.out.println("\n\nGAME STARTING...");
 		while( game.getCelebrityGameSize() > 0 ){
+			//reset guess count
 			currentGuesses = 5;
+			//print out current clue
 			System.out.println("\nYour clue: " + game.sendClue() );
+			//store the answer
 			String celeb = game.sendAnswer();
 			//keep on going while guess count higher than 0
 			while( currentGuesses > 0 ){
 				System.out.print("You have " + currentGuesses + " guesses left: ");
 				String guess = sc.nextLine();
-				System.out.println();
 				//if right
 				if( game.processGuess(guess) ){
-					System.out.println("You got it right! You have " + points++ + " points!");
+					System.out.println("You got it right! You have " + ++points + " points!");
 					break;
 				}
 				else{
