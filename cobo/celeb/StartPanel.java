@@ -92,7 +92,6 @@ public class StartPanel extends JPanel
    * String to populate the clueLabel if Class Generated Celebrity is picked.
    */
   
-  
   /**
    * String used for static text in label.
    */

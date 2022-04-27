@@ -10,21 +10,27 @@ public class CelebrityGame
 {
 	/**
 	 * A reference to a Celebrity or subclass instance.
-	 */
+	 */ //<---- makes no sense
+	 private Celebrity gameCelebrity;
 
 	/**
 	 * The GUI frame for the Celebrity game.
 	 */
+	private CelebrityFrame gameWindow;
+
 
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
+	private ArrayList<Celebrity> celebGameList;
 
 	/**
 	 * Builds the game and starts the GUI
 	 */
 	public CelebrityGame()
 	{
+		//prepare the game (adding celebs to the list)
+		prepareGame();
 	}
 
 	/**
@@ -32,6 +38,12 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
+		//reinitialize (start a new game)
+		celebGameList = new ArrayList<Celebrity>(); 
+		//gameWindow = new CelebrityFrame(this);
+		
+		//open GUI frame that allows user to input celebs
+		//gameWindow.replaceScreen("START");
 	}
 
 	/**
@@ -44,7 +56,16 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
-		return false;
+		boolean matchFound = false;
+		guess = guess.trim();
+
+		matchFound = guess.equalsIgnoreCase( gameCelebrity.getAnswer() );
+		if( matchFound ){
+			celebGameList.remove(0);
+			gameCelebrity = celebGameList.get(0);
+		}
+
+		return matchFound;
 	}
 
 	/**
@@ -54,7 +75,16 @@ public class CelebrityGame
 	 */
 	public void play()
 	{
-		
+		//check that celeb game list is not empty so game can actually start
+		if (celebGameList != null && celebGameList.size() > 0  ) 
+		{ 
+			this.gameCelebrity = celebGameList.get(0); 
+			//gameWindow.replaceScreen("GAME"); 
+		}
+		//(if it is empty i guess than print some message) <-- shouldnt happen tho
+		else{
+			System.out.println("CELEB GAME LIST IS EMPTY");
+		}
 	}
 
 	/**
@@ -64,12 +94,25 @@ public class CelebrityGame
 	 *            The name of the celebrity
 	 * @param guess
 	 *            The clue(s) for the celebrity
+	 * 
+	 * NOT IMPLEMENTED FOR NOW:
 	 * @param type
 	 *            What type of celebrity
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		
+		Celebrity newCeleb;
+
+		//checks what type of celeb needs to be added
+		if( type.equals("Literature") ){
+			newCeleb = new LiteratureCelebrity(name, guess);
+		}
+		else{
+			newCeleb = new Celebrity(name, guess);
+		}
+
+		//actually adds the celeb
+		celebGameList.add( newCeleb );
 	}
 
 	/**
@@ -79,7 +122,8 @@ public class CelebrityGame
 	 */
 	public boolean validateCelebrity(String name)
 	{
-		return false;
+		name = name.trim();
+		return name.length() >= 4;
 	}
 
 	/**
@@ -89,9 +133,25 @@ public class CelebrityGame
 	 * @param type Supports a subclass of Celebrity 
 	 * @return If the clue is valid.
 	 */
-	public boolean validateClue(String clue, String type)
+	public boolean validateClue(String clue, String type) 
 	{
-		return false;
+		boolean validClue = false;
+		clue = clue.trim();
+
+		//check if at least 10 chars
+		if( clue.length() >= 10 ){
+			validClue = true;
+
+			//extra recs if
+			if ( type.equalsIgnoreCase("Literature") ){
+
+				String[] temp = clue.split(",");
+				if( temp.length > 1 ) {
+					validClue = true;
+				}
+			}
+		}
+		return validClue;
 	}
 
 	/**
@@ -101,7 +161,7 @@ public class CelebrityGame
 	 */
 	public int getCelebrityGameSize()
 	{
-		return 0;
+		return celebGameList.size();
 	}
 
 	/**
@@ -112,7 +172,7 @@ public class CelebrityGame
 	 */
 	public String sendClue()
 	{
-		return null;
+		return gameCelebrity.getClue();
 	}
 
 	/**
@@ -123,6 +183,6 @@ public class CelebrityGame
 	 */
 	public String sendAnswer()
 	{
-		return null;
+		return gameCelebrity.getAnswer();
 	}
 }
