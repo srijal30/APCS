@@ -16,4 +16,3 @@ Does the GUI take care of setting up the first gameCelebrity?
 
 Notes:
 
-THE GUI was really hard to implement... documentation unclear. Had to do a lot of research online to understand.
