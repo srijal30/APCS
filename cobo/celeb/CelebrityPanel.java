@@ -301,7 +301,7 @@ public class CelebrityPanel extends JPanel
       clueArea.append(controller.sendClue());
     }
     
-    if (controller.getCelebrityGameSize() == 0)
+    if (controller.getCelebrityGameSize() <= 0)
     {
       clueArea.append("\nNo more celebrities to guess.");
       guessButton.setEnabled(false);

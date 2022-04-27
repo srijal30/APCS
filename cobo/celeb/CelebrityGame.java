@@ -56,6 +56,7 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
+		if (celebGameList.size() <= 0) System.out.println("SOrry");
 		boolean matchFound = false;
 		guess = guess.trim();
 

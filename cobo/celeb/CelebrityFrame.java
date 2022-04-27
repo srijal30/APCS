@@ -61,7 +61,7 @@ public class CelebrityFrame extends JFrame
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		
-		replaceScreen("START");
+		replaceScreen("GAME");
 		
 		//Must be the last line of the configuration segment to allow the GUI to be displayed. 
 		//If not set as true the window will not display and the app will terminate.
