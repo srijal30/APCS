@@ -21,7 +21,6 @@ public class CelebrityFrame extends JFrame
 	 * Blank panel used for the CardLayout switching screens feature.
 	 */
 	private JPanel panelCards; //<-- what is this
-	private CardLayout cl;
 	
 	/**
 	 * The instance variable used to add a celebrity to the game.
