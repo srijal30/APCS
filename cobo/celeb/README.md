@@ -9,5 +9,5 @@
 * ~~Creating a Celebrity Class~~
 * ~~Make the Game Playable in Terminal~~
 * ~~Extend Celebrity Class~~
-* Add a GUI
-* Be Xtra
+* ~~Add a GUI~~
+* Be Xtra, if time permits

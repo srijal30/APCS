@@ -1,18 +1,20 @@
-**insert heading**
-
+TNPG: Flying Sullen Actors (Alif Rahman, Salaj Rijal, Faiyaz Rafee)
+APCS
+L09: Some Folks Call It A Charades
+2022-04-27
+time spent: 4 hours
 
 QCC:
-
 how exactly do the GUI and CelebrityGame interact?
-
 
 Panel vs Frame what is the difference? Also what are Cards? Basically what is the structure 
 of JFrame Objects?
 
-
 Does the GUI take care of setting up the first gameCelebrity?
 -no it doesnt, this is handled in the play method
 
+DISCO:
+The documentation is helpful.
 
-Notes:
+The CelebrityFrame class is not complete.
 

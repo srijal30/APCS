@@ -1,3 +1,11 @@
+/*
+TNPG: Flying Sullen Actors (Alif Rahman, Salaj Rijal, Faiyaz Rafee)
+APCS
+L09: Some Folks Call It A Charades
+2022-04-27
+time spent: 4 hours
+*/
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.Color;
@@ -193,6 +201,7 @@ public class CelebrityPanel extends JPanel
                                     {
       public void actionPerformed(ActionEvent mouseClick)
       {
+        controller.prepareGame();
         controller.play();
       }
     });
@@ -289,7 +298,14 @@ public class CelebrityPanel extends JPanel
     String currentGuess = guessField.getText();
     clueArea.append("\nYou guessed: " + currentGuess + "\n");
     
-    if (controller.processGuess(currentGuess))
+    if (controller.getCelebrityGameSize() <= 0)
+    {
+      clueArea.append("\nNo more celebrities to guess.");
+      guessButton.setEnabled(false);
+      guessField.setEnabled(false);
+    }
+    
+    else if ( controller.getCelebrityGameSize() > 0 && controller.processGuess(currentGuess) )
     {
       clueArea.append(success + controller.sendClue());
       clueArea.setBackground(Color.CYAN);
@@ -301,15 +317,8 @@ public class CelebrityPanel extends JPanel
       clueArea.append(controller.sendClue());
     }
     
-    if (controller.getCelebrityGameSize() <= 0)
-    {
-      clueArea.append("\nNo more celebrities to guess.");
-      guessButton.setEnabled(false);
-      guessField.setEnabled(false);
-    }
     // Used to move the text area to the current cursor
     clueArea.setCaretPosition(clueArea.getDocument().getLength());
-    
   }
   
 }
