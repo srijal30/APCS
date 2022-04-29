@@ -42,7 +42,7 @@ public class ImageCelebrity extends Celebrity
 	 */
 	private void processClues() throws IOException, InterruptedException
 	{
-        String command = "wget -P ~/tmp/ " + imgPublic;
+        String command = "wget -P tmp/ " + imgPublic;
         Process proc = Runtime.getRuntime().exec(command);
         
         int splitter = imgPublic.lastIndexOf("/");
