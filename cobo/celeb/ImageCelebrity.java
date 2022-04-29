@@ -31,7 +31,7 @@ public class ImageCelebrity extends Celebrity
 	public ImageCelebrity(String answer, String clues) throws IOException,InterruptedException
 	{
 		super(answer, clues);
-        imgPublic = clues;
+		imgPublic = clues;
 		processClues();
 	}
 	

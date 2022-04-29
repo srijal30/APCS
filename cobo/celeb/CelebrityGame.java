@@ -20,7 +20,7 @@ public class CelebrityGame
 	/**
 	 * A reference to a Celebrity or subclass instance.
 	 */ //<---- makes no sense
-	 private Celebrity gameCelebrity;
+	 public Celebrity gameCelebrity;
 
 	/**
 	 * The GUI frame for the Celebrity game.

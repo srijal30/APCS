@@ -206,6 +206,7 @@ public class StartPanel extends JPanel
 		startButton.setEnabled(false);
 		typeGroup.add(celebrityRadio);
 		typeGroup.add(literatureRadio);  
+    typeGroup.add(imageRadio);
   }
   
   /**

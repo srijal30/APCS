@@ -63,7 +63,7 @@ public class CelebrityFrame extends JFrame
 	{
 		panelCards.add(gamePanel, "GAME");
 		panelCards.add(startPanel, "START"); 
-		this.setSize(69,69);
+		this.setSize(800,800);
 		this.setTitle("Celebrity Game");
 		this.add(panelCards);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,7 +84,13 @@ public class CelebrityFrame extends JFrame
 		if(screen.equals("GAME"))
 		{
 			//If the selected screen is the game, sends the first clue to the screen.
-			gamePanel.addClue(controller.sendClue());
+			String clue = controller.sendClue();
+			if( clue.contains("http") ){
+				SimpleGUIRunner.open(screen);
+			}
+			else{
+				gamePanel.addClue(controller.sendClue());
+			}
 		}
 		//Sets the chosen JPanel subclass as the active class
 		((CardLayout)panelCards.getLayout()).show(panelCards , screen);
