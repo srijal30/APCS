@@ -6,6 +6,7 @@ L09: Some Folks Call It A Charades
 time spent: 4 hours
 */
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -116,6 +117,15 @@ public class CelebrityGame
 		//checks what type of celeb needs to be added
 		if( type.equals("Literature") ){
 			newCeleb = new LiteratureCelebrity(name, guess);
+		}
+		else if (type.equals("Image") ){
+			try{
+				newCeleb = new ImageCelebrity(name, guess);
+			}
+			catch( Exception e){
+				System.out.println(e);
+				newCeleb = new Celebrity(name, guess);
+			}
 		}
 		else{
 			newCeleb = new Celebrity(name, guess);
