@@ -51,7 +51,7 @@ public class StartPanel extends JPanel
    * RadioButton for the Celebrity type.
    */
   private JRadioButton literatureRadio;
-  
+  private JRadioButton imageRadio;
   /**
    * Customize the JRadioButton for the class created sub class
    */
@@ -95,7 +95,7 @@ public class StartPanel extends JPanel
    * String to populate the clueLabel if Literature Celebrity is picked.
    */
   private String literatureClue;
-  
+  private String imageClue;
   /**
    * String to populate the clueLabel if Class Generated Celebrity is picked.
    */
@@ -126,8 +126,14 @@ public class StartPanel extends JPanel
     this.typeGroup = new ButtonGroup();
     this.celebrityRadio = new JRadioButton("Celebrity");
     this.literatureRadio = new JRadioButton("Literature Celebrity");
+    
+    this.imageRadio = new JRadioButton("Image Celebrity");
+    
     this.celebrityClue = "Enter the clue for the celebrity";
     this.literatureClue = "Enter the clues for the literature celeb separated by commas";
+    
+    this.imageClue = "Enter valid image url";
+    
     this.clueLabel = new JLabel(celebrityClue);
     
     this.answerField = new JTextField("Type celebrity here (4 letters minimum thx Cher)");
@@ -164,12 +170,12 @@ public class StartPanel extends JPanel
     {
       validClue = controller.validateClue(clueText, "Literature");
     }
-    else
+    else if ( imageRadio.isSelected() )
     {
-      validClue = controller.validateClue(clueText, "");
+      validClue = controller.validateClue(clueText, "Image");
     }
     
-    if (answerText.length() > 4)
+    if (answerText.length() >= 4)
     {
       validAnswer = controller.validateCelebrity(answerText);
     }
@@ -193,7 +199,9 @@ public class StartPanel extends JPanel
 		this.add(celebrityCountLabel);
 		this.add(addCelebrityButton);
 
-		// Adds the RadioButtons to the group so only one can be selected.
+    this.add(imageRadio);
+
+    // Adds the RadioButtons to the group so only one can be selected.
 		celebrityRadio.setSelected(true);
 		startButton.setEnabled(false);
 		typeGroup.add(celebrityRadio);
@@ -279,6 +287,7 @@ public class StartPanel extends JPanel
      */
     literatureRadio.addActionListener(select -> clueLabel.setText(literatureClue));
     celebrityRadio.addActionListener(select -> clueLabel.setText(celebrityClue));
+    imageRadio.addActionListener(select -> clueLabel.setText(imageClue));
     
   }
   
@@ -296,6 +305,9 @@ public class StartPanel extends JPanel
     if (literatureRadio.isSelected())
     {
       type = "Literature";
+    }
+    if (imageRadio.isSelected()){
+      type = "Image";
     }
     String answer = answerField.getText().trim();
     String clue = clueField.getText().trim();
