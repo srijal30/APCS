@@ -46,7 +46,7 @@ public class ImageCelebrity extends Celebrity
         Process proc = Runtime.getRuntime().exec(command);
         
         int splitter = imgPublic.lastIndexOf("/");
-        imgLocal = "~/tmp/" + imgPublic.substring(splitter+1);
+        imgLocal = "tmp/" + imgPublic.substring(splitter+1);
 
         proc.waitFor();
 	}
