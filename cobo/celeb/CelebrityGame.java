@@ -38,6 +38,9 @@ public class CelebrityGame
 	 */
 	public CelebrityGame()
 	{
+		celebGameList = new ArrayList<Celebrity>(); 
+		gameWindow = new CelebrityFrame(this);
+		
 		//prepare the game (adding celebs to the list)
 		prepareGame();
 	}
@@ -48,9 +51,6 @@ public class CelebrityGame
 	public void prepareGame()
 	{
 		//reinitialize (start a new game)
-		celebGameList = new ArrayList<Celebrity>(); 
-		gameWindow = new CelebrityFrame(this);
-		
 		//open GUI frame that allows user to input celebs
 		gameWindow.replaceScreen("START");
 	}
