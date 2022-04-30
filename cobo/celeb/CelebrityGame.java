@@ -192,6 +192,8 @@ public class CelebrityGame
 	 */
 	public String sendClue()
 	{
+		//make sure previous image tab is closed
+		SimpleGUIRunner.close();
 		return gameCelebrity.getClue();
 	}
 

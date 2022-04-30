@@ -132,7 +132,7 @@ public class StartPanel extends JPanel
     this.celebrityClue = "Enter the clue for the celebrity";
     this.literatureClue = "Enter the clues for the literature celeb separated by commas";
     
-    this.imageClue = "Enter valid image url";
+    this.imageClue = "Please provide valid image url";
     
     this.clueLabel = new JLabel(celebrityClue);
     

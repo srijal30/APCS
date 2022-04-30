@@ -6,9 +6,6 @@ L09: Some Folks Call It A Charades
 time spent: 4 hours
 */
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.swing.plaf.basic.BasicBorders.SplitPaneBorder;
 
 /**
  * Subclass of Celebrity to show how methods can be overridden and super can be called while changing functionality.
@@ -21,7 +18,6 @@ public class ImageCelebrity extends Celebrity
 	 * The list of clues for the Literature Celebrity. They can be titles of texts, important characters, settings, etc...s
 	 */
 
-     private String imgLocal;
      private String imgPublic;
 	/**
 	 * Builds a LiteratureCelebrity instance with an answer and a series of clues as a String separated by commas.
@@ -42,13 +38,6 @@ public class ImageCelebrity extends Celebrity
 	 */
 	private void processClues() throws IOException, InterruptedException
 	{
-        String command = "wget -P tmp/ " + imgPublic;
-        Process proc = Runtime.getRuntime().exec(command);
-        
-        int splitter = imgPublic.lastIndexOf("/");
-        imgLocal = "tmp/" + imgPublic.substring(splitter+1);
-
-        proc.waitFor();
 	}
 	
 	/**
@@ -58,8 +47,12 @@ public class ImageCelebrity extends Celebrity
 	@Override
 	public String getClue()
 	{
-		System.out.println(imgLocal);
-		SimpleGUIRunner.open(imgLocal);
+		try{
+			SimpleGUIRunner.open(imgPublic);
+		}
+		catch( Exception e ){
+			System.out.println("somethings up");
+		}
         return "check the open window";
 	}
 	
@@ -67,18 +60,7 @@ public class ImageCelebrity extends Celebrity
 	@Override
 	public String toString()
 	{
-		String dsc = "This is the img celebrity: " + getAnswer() + "\nThe clues are:\n\t"+imgLocal+"\n\t"+imgPublic;
+		String dsc = "This is the img celebrity: " + getAnswer() + "\nThe clues are: " + imgPublic;
 		return dsc;
 	}
-
-	public String getLocal(){
-		return imgLocal;
-	}
-
-    public static void main(String[] args) throws IOException, InterruptedException {
-        
-        ImageCelebrity celeb = new ImageCelebrity("", "https://techcrunch.com/wp-content/uploads/2021/01/GettyImages-1229901940.jpg?w=730&crop=1");
-        System.out.println(celeb);
-
-    }
 }
