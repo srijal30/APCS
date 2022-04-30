@@ -58,7 +58,9 @@ public class ImageCelebrity extends Celebrity
 	@Override
 	public String getClue()
 	{
-        return "temp";
+		System.out.println(imgLocal);
+		SimpleGUIRunner.open(imgLocal);
+        return "check the open window";
 	}
 	
 	
@@ -67,6 +69,10 @@ public class ImageCelebrity extends Celebrity
 	{
 		String dsc = "This is the img celebrity: " + getAnswer() + "\nThe clues are:\n\t"+imgLocal+"\n\t"+imgPublic;
 		return dsc;
+	}
+
+	public String getLocal(){
+		return imgLocal;
 	}
 
     public static void main(String[] args) throws IOException, InterruptedException {

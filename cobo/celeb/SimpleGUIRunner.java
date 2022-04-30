@@ -16,11 +16,11 @@ public class SimpleGUIRunner
 
 	public static void open( String path ){
 		JFrame tmp = new JFrame();
-		tmp.add( new JLabel(new ImageIcon("flag.jpg")));
+		tmp.add( new JLabel(new ImageIcon(path)));
 
 		tmp.setSize(800,800);
 		tmp.setTitle("Celebrity Clue");
-		tmp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//tmp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		tmp.setVisible(true);
 
@@ -30,16 +30,10 @@ public class SimpleGUIRunner
 		tmp.dispose();
 		tmp = null;
 	}
+
 	public static void main(String[] args)
 	{
-		JFrame sample = new JFrame();
-		sample.add( new JLabel(new ImageIcon("flag.jpg")));
-
-		sample.setSize(800,800);
-		sample.setTitle("Celebrity Clue");
-		sample.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		sample.setVisible(true);
+		open("tmp/WpVqQv.gif");
 	}
 
 }

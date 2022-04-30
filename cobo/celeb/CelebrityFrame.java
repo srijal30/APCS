@@ -84,13 +84,7 @@ public class CelebrityFrame extends JFrame
 		if(screen.equals("GAME"))
 		{
 			//If the selected screen is the game, sends the first clue to the screen.
-			String clue = controller.sendClue();
-			if( clue.contains("http") ){
-				SimpleGUIRunner.open(screen);
-			}
-			else{
-				gamePanel.addClue(controller.sendClue());
-			}
+			gamePanel.addClue(controller.sendClue());
 		}
 		//Sets the chosen JPanel subclass as the active class
 		((CardLayout)panelCards.getLayout()).show(panelCards , screen);
