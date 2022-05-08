@@ -15,7 +15,7 @@ ALGO 1:
 prerequisite: pre and post traversals
 
 0. Assign the last character of the post traversal as the root of the current tree. Then delete it from
-the post traversal. Also delete the first character of the pre traversal. If the post traversal is now empty, then skip to step 4.
+the post traversal. Also delete the first character of the pre traversal. If the post and pre traversals are now empty, then skip to step 4.
 
 1. For the new first character of the pre traversal, find its position in the post traversal. Split both the pre and post traversals by how much the position
 changed.
