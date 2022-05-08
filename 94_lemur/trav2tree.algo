@@ -1,0 +1,57 @@
+Flying Sullen Actors: Faiyaz Rafee, Salaj Rijal, Alif Rahman
+APCS
+HW 94 -- Reforstation -- Creating an Algo to create a Tree
+2022-05-08
+
+DISCO:
+- Algos are recursive in nature.
+
+QCC:
+- How do you explain a recursive algorithm?
+- Is there a general algo regardless of what traversals you are given?
+- Is it possible to create a tree given only 1 traversal? Maybe w/ some additional info such as what type of tree it is (perfect, balanced, etc)?
+
+ALGO 1:
+prerequisite: pre and post traversals
+
+0. Assign the last character of the post traversal as the root of the current tree. Then delete it from
+the post traversal. Also delete the first character of the pre traversal. If the post traversal is now empty, then skip to step 4.
+
+1. For the new first character of the pre traversal, find its position in the post traversal. Split both the pre and post traversals by how much the position
+changed.
+
+2. Repeat steps 0-1 with the new traversals.
+
+3. You are done creating the current tree.
+
+--------------------------------------
+
+ALGO 2: 
+prerequisite: post and inorder traversals
+
+0. Assign the last character of the post traversal as the root of the current tree. Then delete it from
+the post traversal. If the post traversal is now empty, then skip to step 4.
+
+1. Split the inorder traversal by the root character into 2 new inorder traversals (left_inorder and right_inorder).
+
+2. Split the post traversal into 2 new post traversals (left_post and right_post) respective of the lengths of left_inorder and right_inorder. 
+
+3. Repeat steps 0-2 for the new left and right traversals.  
+
+4. You are done creating the current tree.
+
+----------------------------------------------
+
+ALGO 2:  
+prerequisite: pre and inorder traversals
+
+0. Assign the first character of the pre traversal as the root of the current tree. Then delete it from
+the pre traversal. If the pre traversal is now empty, then skip to step 4.
+
+1. Split the inorder traversal by the root character into 2 new inorder traversals (left_inorder and right_inorder).
+
+2. Split the pre traversal into 2 new post traversals (left_pre and right_pre) respective of the lengths of left_inorder and right_inorder. 
+
+3. Repeat steps 0-2 for both the left traversals and right traversals.  
+
+4. You are done creating the current tree.
