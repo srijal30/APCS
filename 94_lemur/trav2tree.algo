@@ -1,7 +1,9 @@
 Flying Sullen Actors: Faiyaz Rafee, Salaj Rijal, Alif Rahman
 APCS
-HW 94 -- Reforstation -- Creating an Algo to create a Tree
-2022-05-08
+HW 94 -- Reforestation -- Creating an Algo to create a Tree
+2022-05-08f
+time: .5 hours
+
 
 DISCO:
 - Algos are recursive in nature.
@@ -11,9 +13,40 @@ QCC:
 - Is there a general algo regardless of what traversals you are given?
 - Is it possible to create a tree given only 1 traversal? Maybe w/ some additional info such as what type of tree it is (perfect, balanced, etc)?
 
+
+HOW KEEN ARE YOUR POWERS OF OBSERVATION?
+------------------------------------------------
+Q: For a given binary tree, how many unique pre-order traversals are there?
+A: 1
+
+Q: For a given binary tree, how many unique in-order traversals are there?
+A: 1
+
+Q: For a given binary tree, how many unique post-order traversals are there?
+A: 1
+
+Q: For a given traversal, how many unique trees could have produced it?
+A: Our guess is 2 to the power of n-1 where n is the amount of nodes. This is because for every node (except for the root), there are 2 possible positions (left or right)
+
+Q: Given a pre-order traversal, what can you infer about its tree?
+A: You can infer its root and amount of nodes.
+
+Q: Given a post-order traversal, what can you infer about its tree?
+A: You can infer its root and amount of nodes.
+
+Q: What does "1-to-1" mean?
+A: for each x there is the same amount of y
+
+Q: What does "onto" mean?
+A: Putting something "on" (the surface of) something else.
+
+================================================
+
+
+
 ALGO 1:
 prerequisite: pre and post traversals
-
+procedure:
 0. Assign the last character of the post traversal as the root of the current tree. Then delete it from
 the post traversal. Also delete the first character of the pre traversal. If the post and pre traversals are now empty, then skip to step 4.
 
@@ -28,7 +61,7 @@ changed.
 
 ALGO 2: 
 prerequisite: post and inorder traversals
-
+procedure:
 0. Assign the last character of the post traversal as the root of the current tree. Then delete it from
 the post traversal. If the post traversal is now empty, then skip to step 4.
 
@@ -44,7 +77,7 @@ the post traversal. If the post traversal is now empty, then skip to step 4.
 
 ALGO 2:  
 prerequisite: pre and inorder traversals
-
+procedure:
 0. Assign the first character of the pre traversal as the root of the current tree. Then delete it from
 the pre traversal. If the pre traversal is now empty, then skip to step 4.
 
