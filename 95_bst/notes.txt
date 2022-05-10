@@ -1,0 +1,11 @@
+With L = level, d = depth, h = height...
+
+does height start at 0?
+
+                               h
+1. a perfect binary tree has   Σ  = 2^(i-1) nodes  
+                              i=1
+
+2. at each level, a perfect binary tree has 2^(d-1) nodes.
+
+3. height of a complete binary tree w/ n nodes is  
