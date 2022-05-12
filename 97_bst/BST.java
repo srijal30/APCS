@@ -4,7 +4,29 @@ Flying SUllen Actors: Faiyaz Rafee, Salaj Rijal, Alif Rahman
 APCS
 HW 97 - BST - REMOVE????
 2022-05-11
+time spent: 2 hours
 
+DISCO:
+piggybacking - giving responsibility to someone else
+you can return TreeNode to help build a "new tree" (one without the node in question)
+shifting responsibility is key (until you reach someone who cant shift responsibilty anymore)
+
+QCC:
+can this be done iteratively?
+is there a btter way to impleement this algorightm in a much cleaner simpler OOP fashion?
+
+
+ALGORITHM: 
+
+To remove a node given a value and a current node (root)...
+
+If the current node is the one that needs to be removed: 
+a. if the current node has no children, return an empty node
+b. if the current node has one child, return the child node
+c. if the current node has two children, then replace the value of the current node with the value 
+of the left node and then remove the value of the left node from the left subtree 
+
+If the current node is not the one that needs to be removed... then remove the val in the left and right subtrees
 */
 
 import java.util.LinkedList;
