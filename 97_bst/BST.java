@@ -249,87 +249,67 @@ public class BST
 
   //taken from library temprrarily.... will be making my own soon
   public String toString(){
-    LinkedList<TreeNode> q = new LinkedList<TreeNode>();
-    q.add(_root);
-    // +1 is needed if height method meets FDA requirements
-    return toString(q,1,this.height() + 1);
-}
-
-
-String toString(LinkedList<TreeNode> printQueue,int layerNum,int height){
-  if (height==0){return "";}
-  int printLen = printQueue.size();
-  int initialSpace = (int) Math.pow(2,height-layerNum)-1;
-  String thisLayer = "";
-  for (int sp = 0;sp<initialSpace;sp++)
-      thisLayer+=" ";
-  for (int i = 0; i<printLen;i++){
-      TreeNode item = printQueue.removeFirst();
-      if (item ==null){
-          thisLayer+=" ";
-          printQueue.addLast(null);
-          printQueue.addLast(null);
-      } else {
-          thisLayer+=item.getValue();
-          printQueue.addLast(item.getLeft());
-          printQueue.addLast(item.getRight());
-      }
-      for (int sp = 0;sp<2*initialSpace+1;sp++)
-          thisLayer+=" ";
-  }
-  if (layerNum==height){return thisLayer;}
-  else {
-      return thisLayer+"\n"+toString(printQueue,layerNum+1,height);
-  }
-}
-
-  /*
-  public String toString(){
-
     String result = "";
-    ArrayList<TreeNode> queue = new ArrayList<TreeNode>();
 
-    //add all nodes to queue in level order
+    LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
     queue.add( _root );
-    int tracker = 0; //keeps track of how many nodes childrens we have noted down
+    int tracker = 0;
 
-    while( queue.size() - tracker > 0 ){
-      int tmp = queue.size();
-      for( ; tracker < tmp; tracker++ ){
-        //get the current node
-        System.out.println( queue );
-        TreeNode cur = queue.get(tracker);
-        //add its string representation
-        result += nodeToString( cur );
-        //add its children to the queue
-        if( cur.getLeft() != null ) queue.add( cur.getLeft() );
-        if( cur.getRight() != null ) queue.add( cur.getRight() );
+    boolean stillNodes = true;
+    while( queue.size() - tracker > 0 && stillNodes ){
+        int endIndex = queue.size(); 
+        for( ; tracker < endIndex; tracker++ ){
+          stillNodes = false;
+          if( queue.get(i) == null ){
+            queue.add( null );
+            queue.add( null );
+          }
+          else {
+           queue.add( queue.get(i).getLeft() );
+           queue.add( queue.get(i).getRight() );
+           stillNodes = true;
+          }
+        }
+    }
+
+    String line1 = "";
+    String line2 = "";
+    int curHeight = -1;
+    
+    for( TreeNode cur : queue ){
+      int newHeight = height( cur );
+      if( curHeight != newHeight ){
+        result += line1;
+        result += line2;
+        line1 = "";
+        line2 = "";
+        curHeight = newHeight;
       }
-      //add a newline
-      result+="\n";
+      String[] 2lines = stringHelper( cur );
+      line1 += 2lines[0];
+      line2 += 2lines[1];
     }
 
     return result;
-
   }
 
-  //adds a node and how much spacing it needs
-  public String nodeToString( TreeNode node ){
-    String result = "";
+  public String[] stringHelper( TreeNode cur ){
 
-    //add spaces for right
-    int nodesLeftTree = numNodes( node.getLeft() );
-    for( int i = 0; i < nodesLeftTree; i++) result += "xxx";
+      if( cur == null ){
+          return new String[2]{"",""};
+      }
 
-    //add current node
-    result += "x" + node.getValue() + "x";  //String.format("%5x", node.getValue() );
+      String[] res = new String[]{ "", ""};
+      
+      String spaceLeft = "";
+      String spaceRight = "";
+      for( int i = 0; i < numNodes(cur.getLeft; i++ ) space+= "   ";
+      res[0]+= space;
+      res[0]+= cur.getValue();
+      res[0]+= space;
 
-    //add spaces for left
-    int nodesRightTree = numNodes( node.getRight() );
-    for( int i = 0; i < nodesRightTree; i++ ) result+= "xxx";
 
-    return result;
-  }*/
+  }
 
 
   //precondition, the thnig you want to remove is in the tree?
@@ -406,14 +386,6 @@ String toString(LinkedList<TreeNode> printQueue,int layerNum,int height){
     arbol.insert( 1 );
     arbol.insert( 0 );
     */
-  
-    System.out.println( "tree after insertions:\n" + arbol );
-    System.out.println();
-  
-    System.out.println();
-    for( int i=-1; i<8; i++ ) {
-        System.out.println(" searching for "+i+": " + arbol.search(i) );    
-    }
   
     System.out.println();
     System.out.println( arbol );
