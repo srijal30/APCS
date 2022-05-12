@@ -249,67 +249,40 @@ public class BST
 
   //taken from library temprrarily.... will be making my own soon
   public String toString(){
-    String result = "";
+    LinkedList<TreeNode> q = new LinkedList<TreeNode>();
+    q.add(_root);
+    // +1 is needed if height method meets FDA requirements
+    return toString(q,1,this.height() + 1);
+}
 
-    LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
-    queue.add( _root );
-    int tracker = 0;
 
-    boolean stillNodes = true;
-    while( queue.size() - tracker > 0 && stillNodes ){
-        int endIndex = queue.size(); 
-        for( ; tracker < endIndex; tracker++ ){
-          stillNodes = false;
-          if( queue.get(i) == null ){
-            queue.add( null );
-            queue.add( null );
-          }
-          else {
-           queue.add( queue.get(i).getLeft() );
-           queue.add( queue.get(i).getRight() );
-           stillNodes = true;
-          }
-        }
-    }
-
-    String line1 = "";
-    String line2 = "";
-    int curHeight = -1;
-    
-    for( TreeNode cur : queue ){
-      int newHeight = height( cur );
-      if( curHeight != newHeight ){
-        result += line1;
-        result += line2;
-        line1 = "";
-        line2 = "";
-        curHeight = newHeight;
+String toString(LinkedList<TreeNode> printQueue,int layerNum,int height){
+  if (height==0){return "";}
+  int printLen = printQueue.size();
+  int initialSpace = (int) Math.pow(2,height-layerNum)-1;
+  String thisLayer = "";
+  for (int sp = 0;sp<initialSpace;sp++)
+      thisLayer+=" ";
+  for (int i = 0; i<printLen;i++){
+      TreeNode item = printQueue.removeFirst();
+      if (item ==null){
+          thisLayer+=" ";
+          printQueue.addLast(null);
+          printQueue.addLast(null);
+      } else {
+          thisLayer+=item.getValue();
+          printQueue.addLast(item.getLeft());
+          printQueue.addLast(item.getRight());
       }
-      String[] 2lines = stringHelper( cur );
-      line1 += 2lines[0];
-      line2 += 2lines[1];
-    }
-
-    return result;
+      for (int sp = 0;sp<2*initialSpace+1;sp++)
+          thisLayer+=" ";
   }
-
-  public String[] stringHelper( TreeNode cur ){
-
-      if( cur == null ){
-          return new String[2]{"",""};
-      }
-
-      String[] res = new String[]{ "", ""};
-      
-      String spaceLeft = "";
-      String spaceRight = "";
-      for( int i = 0; i < numNodes(cur.getLeft; i++ ) space+= "   ";
-      res[0]+= space;
-      res[0]+= cur.getValue();
-      res[0]+= space;
-
-
+  if (layerNum==height){return thisLayer;}
+  else {
+      return thisLayer+"\n"+toString(printQueue,layerNum+1,height);
   }
+}
+
 
 
   //precondition, the thnig you want to remove is in the tree?
@@ -386,10 +359,15 @@ public class BST
     arbol.insert( 1 );
     arbol.insert( 0 );
     */
-  
+    
     System.out.println();
     System.out.println( arbol );
-  
+    
+    arbol.remove(3);
+    System.out.println();
+    System.out.println( arbol );
+    /*
+    
     arbol.remove(6);
     System.out.println();
     System.out.println( arbol );
@@ -402,11 +380,6 @@ public class BST
     System.out.println();
     System.out.println( arbol );
     
-    arbol.remove(3);
-    System.out.println();
-    System.out.println( arbol );
-    /*
-  
     arbol.remove(2);
     System.out.println();
     System.out.println( arbol );
