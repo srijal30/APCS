@@ -1,0 +1,10 @@
+TNPG: Flying Sullen Actors
+Roster: Salaj Rijal, Alif Rahman, Faiyaz Rafee
+HW99 -- Some Are More Equal Than Others, Codified
+2022-05-13
+time spent: 0.7 hours
+
+DISCO:
+The current implementation stimulates priority. If we can do APQ with ints, that means we can do it with objects that have a prioirty integer instance variable.
+QCC:
+How do we make this a general class?

@@ -322,8 +322,12 @@ String toString(LinkedList<TreeNode> printQueue,int layerNum,int height){
     //we havent found needed node yet
     else{
       //if we havent found yet maybe its deeper
-      curr.setLeft( remove( num, curr.getLeft() ) );
-      curr.setRight( remove( num, curr.getRight() ) );
+      if( num > curr.getValue() ){
+        curr.setRight( remove( num, curr.getRight() ) );
+      }
+      else{
+        curr.setLeft( remove( num, curr.getLeft() ) );
+      }
     }
     //always return curr
     return curr;
