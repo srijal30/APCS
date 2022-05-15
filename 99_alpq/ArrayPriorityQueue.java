@@ -63,7 +63,9 @@ public class ArrayPriorityQueue implements PriorityQueue {
     public String toString() {
         return foo.toString();
     }
-    
+
+
+    //taken from Piazza (thanks LL)
     public static void main(String[] args) {
       ArrayPriorityQueue poo = new ArrayPriorityQueue();
       poo.add(5);
