@@ -1,0 +1,11 @@
+Flying Sullen Actors: Faiyaz Rafee, Alif Ragman, Salaj Rijal
+APCS
+hw 101 Heap O Trouble -- creating heap algos
+2022-5-16
+
+DISCO:
+we pretty much used the same algos from BST, but this time we had to take into account that we have 2 options
+instead of the previous 1.
+
+QCC:
+is there a btter way to implement our algo?

@@ -1,0 +1,10 @@
+REMOVE FROM MIN HEAP:
+
+0. if the current node is null, you are done.
+1. if the current node is the value to be removed:
+    a. if the current node has no children, then remove it
+    b. if current node has 1 child, then make that child the new current node
+    c. if there are 2 children, then replace current node with left child and remove left child
+    from left subtree
+
+2. call remove on both left and right subtrees.

@@ -1,0 +1,5 @@
+TO ADD A VALUE IN A MIN HEAP:
+
+0. if there there isnt a root in the current tree, add the new node.
+1. if the new node's value is smaller than the value of the current node, then swap current node with new node. Then add the value to the less deep subtree.
+2. if it is greater, then add the current node to the less deep subtree. 
