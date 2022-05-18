@@ -86,6 +86,10 @@ public class ALHeap
    */
   public Integer removeMin()
   {
+    if( isEmpty() ) {
+      System.out.println("You fool!");
+      return -1;
+    }
     int tmp = peekMin();
 
     //if only 1 item in heap
