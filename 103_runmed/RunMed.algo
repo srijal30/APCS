@@ -11,3 +11,5 @@ ADD:
 4. if bigVals is less than lilVals, transfer maxval from lilVals to bigVals
 
 GET MEDIAN:
+1. if trees have equals element size, return the average of the extreme vals of bigVals and lilVal
+2. else return bigVals's extreme value
