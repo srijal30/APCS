@@ -1,0 +1,13 @@
+OUR ALGO:
+
+lilvals is the maxHeap
+bigvals is the minHeap
+
+ADD:
+
+1. if the newVal is less than the minVal of bigVals, then add it to lilvals
+2. else add newVal to bigVals
+3. if bigVals is 2 items greater than lilVals, transer minVal from bigVal to lilVal
+4. if bigVals is less than lilVals, transfer maxval from lilVals to bigVals
+
+GET MEDIAN:
