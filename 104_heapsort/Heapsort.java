@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 Flying Sullen Actors: TFR, TSR, TAR
 APCS
@@ -6,11 +7,17 @@ hw 104 -- heapsort -- sort using heaps
 time spent: 1hr
 */
 
+=======
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
 /**
  * class Heapsort
  * SKELETON
  * sorts in-place by heapifying data, then repeatedly pulling from heap
  */
+<<<<<<< HEAD
+=======
+
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
 public class Heapsort
 {
 
@@ -35,6 +42,7 @@ public class Heapsort
 
     //STEP 2: repeatedly pull from heap until empty
     //(Sorted region will grow from R to L)
+<<<<<<< HEAD
     for( int lastLeaf = data.length-1; lastLeaf > 0 ; lastLeaf--  ) {
       //set aside root val
       int tmp = data[0];
@@ -50,22 +58,49 @@ public class Heapsort
 
         //choose child w/ max value, or check for child
         maxChildPos = maxChildPos( pos, lastLeaf, data ); 
+=======
+    for( int lastLeaf = data[data.length-1]; lastLeaf > 0; lastLeaf-- ) {
+      //set aside root val
+      int tmp = data[0];
+
+      //swap last leaf (rightmost on bottom level) into root pos
+      swap( 0, lastLeaf, data);
+      //walk now-out-of-place root node down the tree...
+      int pos = lastLeaf;
+      int minChildPos;
+      int maxChildPos;
+
+      while(  ) {
+
+        //choose child w/ max value, or check for child
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
 
         //if no children, then i've walked far enough
         if ( maxChildPos == -1 )
           break;
         //if i am greater than my greatest child, i've walked far enough
+<<<<<<< HEAD
         else if ( data[pos] > data[maxChildPos] )
           break;
         //if i am > least child, swap with that child
         else {
            swap( pos, maxChildPos, data );
            pos = maxChildPos;
+=======
+        else if (  )
+          break;
+        //if i am > least child, swap with that child
+        else {
+
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
         }
       }
 
       //overwrite last leaf with old root val
+<<<<<<< HEAD
       data[ lastLeaf ] = tmp;
+=======
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
 
     }
 
@@ -79,6 +114,7 @@ public class Heapsort
 
   private void minHeapify( int[] a )
   {
+<<<<<<< HEAD
     for( int i=1; i<a.length; i++ ) {
       //add a[i] as leaf
       int addValPos = i;//val to add is next non-heap element
@@ -91,18 +127,38 @@ public class Heapsort
 
         if ( a[parentPos] > a[addValPos] ) {
           swap( parentPos, addValPos, a );
+=======
+
+    for( int i=1; i<a.length; i++ ) {
+      //add a[i] as leaf
+      int addValPos =  //val to add is next non-heap element
+
+      //now must percolate up
+      while(  ) { //potentially swap until reach root
+
+        //pinpoint parent
+        int parentPos =
+
+        if (  ) {
+          swap(  );
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
           addValPos = parentPos;
         }
         else
           break;
       }
     }
+<<<<<<< HEAD
   }//end minHeapify() -- O(NlogN)
+=======
+  }//end minHeapify() -- O(?)
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
 
 
 
   private void maxHeapify( int[] a )
   {
+<<<<<<< HEAD
     for( int i=1; i<a.length; i++ ) {
       //add a[i] as leaf
       int addValPos = i;//val to add is next non-heap element
@@ -122,6 +178,10 @@ public class Heapsort
       }
     }
   }//end maxHeapify() -- O(NlogN)
+=======
+
+  }//end maxHeapify() -- O(?)
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
 
 
 
@@ -133,6 +193,7 @@ public class Heapsort
     int rc = 2*pos + 2; //index of right child
 
     //pos is not in the heap or pos is a leaf position
+<<<<<<< HEAD
     if ( pos >= last )
       retVal = -1;
     //if no right child, then left child is only option for min
@@ -143,6 +204,18 @@ public class Heapsort
       retVal = lc;
     else
       retVal = rc;
+=======
+    if (  )
+      retVal = -1;
+    //if no right child, then left child is only option for min
+    else if (  )
+      retVal = lc;
+    //have 2 children, so compare to find least
+    else if (  )
+      retVal = lc;
+    else
+
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
     return retVal;
   }
 
@@ -151,6 +224,7 @@ public class Heapsort
   //return position of child with greatest value in input array
   private int maxChildPos( int pos, int last, int[] a )
   {
+<<<<<<< HEAD
     int retVal;
     int lc = 2*pos + 1; //index of left child
     int rc = 2*pos + 2; //index of right child
@@ -167,6 +241,8 @@ public class Heapsort
     else
       retVal = rc;
     return retVal;
+=======
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
   }
 
 
@@ -214,6 +290,10 @@ public class Heapsort
   //main method for testing
   public static void main( String[] args )
   {
+<<<<<<< HEAD
+=======
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
     int[] a = buildArray( 10, 10 );
 
     printArr(a);
@@ -223,7 +303,10 @@ public class Heapsort
     h.sort(a);
 
     printArr(a);
+<<<<<<< HEAD
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======
+>>>>>>> 503b70ce6a53ee021c2df63b0374bbad3153804e
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   }//end main()
